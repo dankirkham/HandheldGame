@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name HandheldGameFootprints)(type KiCad)(uri ${KIPRJMOD}/HandheldGameFootprints.pretty)(options "")(descr ""))
+)

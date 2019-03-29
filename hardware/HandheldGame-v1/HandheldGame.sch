@@ -1,0 +1,1383 @@
+EESchema Schematic File Version 4
+LIBS:HandheldGame-cache
+EELAYER 26 0
+EELAYER END
+$Descr USLetter 11000 8500
+encoding utf-8
+Sheet 1 2
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L 74xx:74HC595 U2
+U 1 1 60ACBEDD
+P 8000 5550
+F 0 "U2" H 8250 4900 50  0000 C CNN
+F 1 "74HC595" H 8250 6100 50  0000 C CNN
+F 2 "Housings_DIP:DIP-16_W7.62mm" H 8000 5550 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74hc595.pdf" H 8000 5550 50  0001 C CNN
+	1    8000 5550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8400 5150 8750 5150
+Wire Wire Line
+	8750 5150 8750 3650
+Wire Wire Line
+	8750 3650 8400 3650
+Wire Wire Line
+	8400 3750 8850 3750
+Wire Wire Line
+	8850 3750 8850 5250
+Wire Wire Line
+	8850 5250 8400 5250
+Wire Wire Line
+	8400 3850 8950 3850
+Wire Wire Line
+	8950 3850 8950 5350
+Wire Wire Line
+	8950 5350 8400 5350
+Wire Wire Line
+	8400 3950 9050 3950
+Wire Wire Line
+	9050 3950 9050 5450
+Wire Wire Line
+	9050 5450 8400 5450
+Wire Wire Line
+	8400 4050 9150 4050
+Wire Wire Line
+	9150 4050 9150 5550
+Wire Wire Line
+	9150 5550 8400 5550
+Wire Wire Line
+	8400 4150 9250 4150
+Wire Wire Line
+	9250 4150 9250 5650
+Wire Wire Line
+	9250 5650 8400 5650
+Wire Wire Line
+	8400 4250 9350 4250
+Wire Wire Line
+	9350 4250 9350 5750
+Wire Wire Line
+	9350 5750 8400 5750
+Wire Wire Line
+	8400 4350 9450 4350
+Wire Wire Line
+	9450 4350 9450 5850
+Wire Wire Line
+	9450 5850 8400 5850
+$Comp
+L 74xx:74HC595 U1
+U 1 1 60ACD223
+P 8000 1600
+F 0 "U1" H 8250 950 50  0000 C CNN
+F 1 "74HC595" H 8250 2150 50  0000 C CNN
+F 2 "Housings_DIP:DIP-16_W7.62mm" H 8000 1600 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74hc595.pdf" H 8000 1600 50  0001 C CNN
+	1    8000 1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8400 3550 8750 3550
+Wire Wire Line
+	8750 3550 8750 1900
+Wire Wire Line
+	8750 1900 8400 1900
+Wire Wire Line
+	8400 3450 8850 3450
+Wire Wire Line
+	8850 3450 8850 1800
+Wire Wire Line
+	8850 1800 8400 1800
+Wire Wire Line
+	8400 3350 8950 3350
+Wire Wire Line
+	8950 3350 8950 1700
+Wire Wire Line
+	8950 1700 8400 1700
+Wire Wire Line
+	8400 3250 9050 3250
+Wire Wire Line
+	9050 3250 9050 1600
+Wire Wire Line
+	9050 1600 8400 1600
+Wire Wire Line
+	8400 3150 9150 3150
+Wire Wire Line
+	9150 3150 9150 1500
+Wire Wire Line
+	9150 1500 8400 1500
+Wire Wire Line
+	8400 3050 9250 3050
+Wire Wire Line
+	9250 3050 9250 1400
+Wire Wire Line
+	9250 1400 8400 1400
+Wire Wire Line
+	8400 2950 9350 2950
+Wire Wire Line
+	9350 2950 9350 1300
+Wire Wire Line
+	9350 1300 8400 1300
+Wire Wire Line
+	8400 2850 9450 2850
+Wire Wire Line
+	9450 2850 9450 1200
+Wire Wire Line
+	9450 1200 8400 1200
+$Comp
+L Regulator_Linear:L7805 U3
+U 1 1 60B868B9
+P 5250 4250
+F 0 "U3" H 5250 4492 50  0000 C CNN
+F 1 "L7805" H 5250 4401 50  0000 C CNN
+F 2 "TO_SOT_Packages_THT:TO-220-3_Vertical" H 5275 4100 50  0001 L CIN
+F 3 "http://www.st.com/content/ccc/resource/technical/document/datasheet/41/4f/b3/b0/12/d4/47/88/CD00000444.pdf/files/CD00000444.pdf/jcr:content/translations/en.CD00000444.pdf" H 5250 4200 50  0001 C CNN
+	1    5250 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C2
+U 1 1 60B8691F
+P 5650 4450
+F 0 "C2" H 5768 4496 50  0000 L CNN
+F 1 "CP" H 5768 4405 50  0000 L CNN
+F 2 "Capacitors_THT:CP_Radial_D5.0mm_P2.50mm" H 5688 4300 50  0001 C CNN
+F 3 "~" H 5650 4450 50  0001 C CNN
+	1    5650 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C1
+U 1 1 60B86966
+P 4800 4450
+F 0 "C1" H 4918 4496 50  0000 L CNN
+F 1 "CP" H 4918 4405 50  0000 L CNN
+F 2 "Capacitors_THT:CP_Radial_D5.0mm_P2.50mm" H 4838 4300 50  0001 C CNN
+F 3 "~" H 4800 4450 50  0001 C CNN
+	1    4800 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J1
+U 1 1 60B86A12
+P 1250 5400
+F 0 "J1" H 1356 5578 50  0000 C CNN
+F 1 "Conn_01x02_Male" H 1356 5487 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 1250 5400 50  0001 C CNN
+F 3 "~" H 1250 5400 50  0001 C CNN
+	1    1250 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR07
+U 1 1 60B86A8C
+P 5650 4650
+F 0 "#PWR07" H 5650 4400 50  0001 C CNN
+F 1 "GND" H 5655 4477 50  0000 C CNN
+F 2 "" H 5650 4650 50  0001 C CNN
+F 3 "" H 5650 4650 50  0001 C CNN
+	1    5650 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR02
+U 1 1 60B86AF1
+P 4800 4650
+F 0 "#PWR02" H 4800 4400 50  0001 C CNN
+F 1 "GND" H 4805 4477 50  0000 C CNN
+F 2 "" H 4800 4650 50  0001 C CNN
+F 3 "" H 4800 4650 50  0001 C CNN
+	1    4800 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR04
+U 1 1 60B86B62
+P 1750 5550
+F 0 "#PWR04" H 1750 5300 50  0001 C CNN
+F 1 "GND" H 1755 5377 50  0000 C CNN
+F 2 "" H 1750 5550 50  0001 C CNN
+F 3 "" H 1750 5550 50  0001 C CNN
+	1    1750 5550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+BATT #PWR01
+U 1 1 60B86BDC
+P 4800 4200
+F 0 "#PWR01" H 4800 4050 50  0001 C CNN
+F 1 "+BATT" H 4815 4373 50  0000 C CNN
+F 2 "" H 4800 4200 50  0001 C CNN
+F 3 "" H 4800 4200 50  0001 C CNN
+	1    4800 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR06
+U 1 1 60B86C41
+P 5650 4200
+F 0 "#PWR06" H 5650 4050 50  0001 C CNN
+F 1 "+5V" H 5665 4373 50  0000 C CNN
+F 2 "" H 5650 4200 50  0001 C CNN
+F 3 "" H 5650 4200 50  0001 C CNN
+	1    5650 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4800 4200 4800 4250
+Wire Wire Line
+	4800 4250 4950 4250
+Connection ~ 4800 4250
+Wire Wire Line
+	4800 4250 4800 4300
+Wire Wire Line
+	5650 4300 5650 4250
+Wire Wire Line
+	5650 4250 5550 4250
+Connection ~ 5650 4250
+Wire Wire Line
+	5650 4250 5650 4200
+Wire Wire Line
+	4800 4600 4800 4650
+Wire Wire Line
+	5650 4600 5650 4650
+$Comp
+L power:GND #PWR05
+U 1 1 60B8D02C
+P 5250 4600
+F 0 "#PWR05" H 5250 4350 50  0001 C CNN
+F 1 "GND" H 5255 4427 50  0000 C CNN
+F 2 "" H 5250 4600 50  0001 C CNN
+F 3 "" H 5250 4600 50  0001 C CNN
+	1    5250 4600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5250 4600 5250 4550
+$Comp
+L power:+BATT #PWR03
+U 1 1 60B8E227
+P 1750 5350
+F 0 "#PWR03" H 1750 5200 50  0001 C CNN
+F 1 "+BATT" H 1765 5523 50  0000 C CNN
+F 2 "" H 1750 5350 50  0001 C CNN
+F 3 "" H 1750 5350 50  0001 C CNN
+	1    1750 5350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1450 5400 1750 5400
+Wire Wire Line
+	1750 5400 1750 5350
+Wire Wire Line
+	1450 5500 1750 5500
+Wire Wire Line
+	1750 5500 1750 5550
+$Comp
+L power:+5V #PWR010
+U 1 1 60B98B02
+P 8000 900
+F 0 "#PWR010" H 8000 750 50  0001 C CNN
+F 1 "+5V" H 8015 1073 50  0000 C CNN
+F 2 "" H 8000 900 50  0001 C CNN
+F 3 "" H 8000 900 50  0001 C CNN
+	1    8000 900 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8000 900  8000 1000
+$Comp
+L power:GND #PWR011
+U 1 1 60B9A0D5
+P 8000 2400
+F 0 "#PWR011" H 8000 2150 50  0001 C CNN
+F 1 "GND" H 8005 2227 50  0000 C CNN
+F 2 "" H 8000 2400 50  0001 C CNN
+F 3 "" H 8000 2400 50  0001 C CNN
+	1    8000 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8000 2300 8000 2400
+$Comp
+L power:+5V #PWR012
+U 1 1 60B9BE94
+P 8000 4900
+F 0 "#PWR012" H 8000 4750 50  0001 C CNN
+F 1 "+5V" H 8015 5073 50  0000 C CNN
+F 2 "" H 8000 4900 50  0001 C CNN
+F 3 "" H 8000 4900 50  0001 C CNN
+	1    8000 4900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8000 4900 8000 4950
+$Comp
+L power:GND #PWR013
+U 1 1 60B9F1D5
+P 8000 6350
+F 0 "#PWR013" H 8000 6100 50  0001 C CNN
+F 1 "GND" H 8005 6177 50  0000 C CNN
+F 2 "" H 8000 6350 50  0001 C CNN
+F 3 "" H 8000 6350 50  0001 C CNN
+	1    8000 6350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8000 6250 8000 6350
+Wire Wire Line
+	7600 5750 7500 5750
+Wire Wire Line
+	7600 1500 7500 1500
+Wire Wire Line
+	7500 1500 7500 900 
+Wire Wire Line
+	7500 900  8000 900 
+Connection ~ 8000 900 
+Connection ~ 8000 2400
+Wire Wire Line
+	7500 1800 7500 2400
+Wire Wire Line
+	7500 1800 7600 1800
+Wire Wire Line
+	7500 2400 8000 2400
+Connection ~ 8000 6350
+Wire Wire Line
+	7500 4900 8000 4900
+Connection ~ 8000 4900
+Wire Wire Line
+	7500 5750 7500 6350
+Wire Wire Line
+	7500 6350 8000 6350
+Wire Wire Line
+	7600 5450 7500 5450
+Wire Wire Line
+	7500 4900 7500 5450
+Wire Wire Line
+	8400 2100 9700 2100
+Wire Wire Line
+	9700 2100 9700 6700
+Wire Wire Line
+	9700 6700 7400 6700
+Wire Wire Line
+	7400 6700 7400 5150
+Wire Wire Line
+	7400 5150 7600 5150
+Text Label 6800 5650 0    50   ~ 0
+SHIFT_LATCH
+Text Label 6800 5350 0    50   ~ 0
+SHIFT_CLOCK
+Wire Wire Line
+	6800 5350 7600 5350
+Wire Wire Line
+	6800 5650 7600 5650
+Text Label 6800 1200 0    50   ~ 0
+SHIFT_DATA
+Wire Wire Line
+	6800 1200 7600 1200
+Text Label 6800 1400 0    50   ~ 0
+SHIFT_CLOCK
+Text Label 6800 1700 0    50   ~ 0
+SHIFT_LATCH
+Wire Wire Line
+	6800 1700 7600 1700
+Wire Wire Line
+	7600 1400 6800 1400
+$Comp
+L Device:C C3
+U 1 1 60BCFC0F
+P 6400 1050
+F 0 "C3" H 6515 1096 50  0000 L CNN
+F 1 "100nF" H 6515 1005 50  0000 L CNN
+F 2 "Capacitors_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 6438 900 50  0001 C CNN
+F 3 "~" H 6400 1050 50  0001 C CNN
+	1    6400 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C4
+U 1 1 60BCFC8C
+P 6400 5050
+F 0 "C4" H 6515 5096 50  0000 L CNN
+F 1 "100nF" H 6515 5005 50  0000 L CNN
+F 2 "Capacitors_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 6438 4900 50  0001 C CNN
+F 3 "~" H 6400 5050 50  0001 C CNN
+	1    6400 5050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 4900 7500 4900
+Connection ~ 7500 4900
+Wire Wire Line
+	7500 900  6400 900 
+Connection ~ 7500 900 
+$Comp
+L power:GND #PWR08
+U 1 1 60BD5248
+P 6400 1300
+F 0 "#PWR08" H 6400 1050 50  0001 C CNN
+F 1 "GND" H 6405 1127 50  0000 C CNN
+F 2 "" H 6400 1300 50  0001 C CNN
+F 3 "" H 6400 1300 50  0001 C CNN
+	1    6400 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR09
+U 1 1 60BD5289
+P 6400 5300
+F 0 "#PWR09" H 6400 5050 50  0001 C CNN
+F 1 "GND" H 6405 5127 50  0000 C CNN
+F 2 "" H 6400 5300 50  0001 C CNN
+F 3 "" H 6400 5300 50  0001 C CNN
+	1    6400 5300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 5300 6400 5200
+Wire Wire Line
+	6400 1300 6400 1200
+$Comp
+L HandheldGameSymbols:CD4017BE U4
+U 1 1 60BE604B
+P 6000 2450
+F 0 "U4" H 6050 2500 50  0000 C CNN
+F 1 "CD4017BE" H 6850 2500 50  0000 C CNN
+F 2 "Housings_DIP:DIP-16_W7.62mm" H 6000 2450 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/schs027c/schs027c.pdf" H 6000 2450 50  0001 C CNN
+	1    6000 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7250 2850 7500 2850
+Wire Wire Line
+	7250 2950 7500 2950
+Wire Wire Line
+	7250 3050 7500 3050
+Wire Wire Line
+	7250 3150 7500 3150
+Wire Wire Line
+	7250 3250 7500 3250
+Wire Wire Line
+	7250 3350 7500 3350
+Wire Wire Line
+	7250 3450 7500 3450
+Wire Wire Line
+	7250 3550 7500 3550
+Wire Wire Line
+	7250 3650 7500 3650
+Wire Wire Line
+	7250 3750 7500 3750
+$Comp
+L power:GND #PWR0102
+U 1 1 60C06932
+P 6550 4250
+F 0 "#PWR0102" H 6550 4000 50  0001 C CNN
+F 1 "GND" H 6555 4077 50  0000 C CNN
+F 2 "" H 6550 4250 50  0001 C CNN
+F 3 "" H 6550 4250 50  0001 C CNN
+	1    6550 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C5
+U 1 1 60C06A0A
+P 5400 2400
+F 0 "C5" H 5515 2446 50  0000 L CNN
+F 1 "100nF" H 5515 2355 50  0000 L CNN
+F 2 "Capacitors_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 5438 2250 50  0001 C CNN
+F 3 "~" H 5400 2400 50  0001 C CNN
+	1    5400 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0103
+U 1 1 60C06A9D
+P 6500 2000
+F 0 "#PWR0103" H 6500 1850 50  0001 C CNN
+F 1 "+5V" H 6515 2173 50  0000 C CNN
+F 2 "" H 6500 2000 50  0001 C CNN
+F 3 "" H 6500 2000 50  0001 C CNN
+	1    6500 2000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6500 2250 6500 2150
+Wire Wire Line
+	5400 2250 5400 2150
+Wire Wire Line
+	5400 2150 6500 2150
+Connection ~ 6500 2150
+Wire Wire Line
+	6500 2150 6500 2000
+$Comp
+L power:GND #PWR0104
+U 1 1 60C0E0D8
+P 5400 2600
+F 0 "#PWR0104" H 5400 2350 50  0001 C CNN
+F 1 "GND" H 5405 2427 50  0000 C CNN
+F 2 "" H 5400 2600 50  0001 C CNN
+F 3 "" H 5400 2600 50  0001 C CNN
+	1    5400 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5400 2600 5400 2550
+$Comp
+L power:GND #PWR0105
+U 1 1 60C126A4
+P 5700 3400
+F 0 "#PWR0105" H 5700 3150 50  0001 C CNN
+F 1 "GND" H 5705 3227 50  0000 C CNN
+F 2 "" H 5700 3400 50  0001 C CNN
+F 3 "" H 5700 3400 50  0001 C CNN
+	1    5700 3400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5800 3050 5700 3050
+Wire Wire Line
+	5700 3050 5700 3400
+Text Label 4750 2850 0    50   ~ 0
+DECADE_RESET
+Text Label 4750 2950 0    50   ~ 0
+DECADE_CLOCK
+Wire Wire Line
+	4750 2950 5800 2950
+Wire Wire Line
+	4750 2850 5800 2850
+$Comp
+L MCU_Microchip_ATmega:ATmega328P-PU U5
+U 1 1 60C24C1D
+P 3650 6150
+F 0 "U5" H 3009 6196 50  0000 R CNN
+F 1 "ATmega328P-PU" H 3009 6105 50  0000 R CNN
+F 2 "Housings_DIP:DIP-28_W7.62mm" H 3650 6150 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega328_P%20AVR%20MCU%20with%20picoPower%20Technology%20Data%20Sheet%2040001984A.pdf" H 3650 6150 50  0001 C CNN
+	1    3650 6150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0106
+U 1 1 60C2546E
+P 3650 7800
+F 0 "#PWR0106" H 3650 7550 50  0001 C CNN
+F 1 "GND" H 3655 7627 50  0000 C CNN
+F 2 "" H 3650 7800 50  0001 C CNN
+F 3 "" H 3650 7800 50  0001 C CNN
+	1    3650 7800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0107
+U 1 1 60C254B8
+P 2650 5450
+F 0 "#PWR0107" H 2650 5200 50  0001 C CNN
+F 1 "GND" H 2655 5277 50  0000 C CNN
+F 2 "" H 2650 5450 50  0001 C CNN
+F 3 "" H 2650 5450 50  0001 C CNN
+	1    2650 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0108
+U 1 1 60C25517
+P 3750 4450
+F 0 "#PWR0108" H 3750 4300 50  0001 C CNN
+F 1 "+5V" H 3765 4623 50  0000 C CNN
+F 2 "" H 3750 4450 50  0001 C CNN
+F 3 "" H 3750 4450 50  0001 C CNN
+	1    3750 4450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3750 4450 3750 4550
+Wire Wire Line
+	3750 4550 3650 4550
+Wire Wire Line
+	3650 4550 3650 4650
+Connection ~ 3750 4550
+Wire Wire Line
+	3750 4550 3750 4650
+$Comp
+L Device:C C6
+U 1 1 60C2DEE1
+P 2650 5200
+F 0 "C6" H 2765 5246 50  0000 L CNN
+F 1 "100nF" H 2765 5155 50  0000 L CNN
+F 2 "Capacitors_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 2688 5050 50  0001 C CNN
+F 3 "~" H 2650 5200 50  0001 C CNN
+	1    2650 5200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2650 5450 2650 5350
+Wire Wire Line
+	2650 5050 2650 4550
+Wire Wire Line
+	2650 4550 2900 4550
+Connection ~ 3650 4550
+Wire Wire Line
+	2900 4950 2900 4550
+Connection ~ 2900 4550
+Wire Wire Line
+	2900 4550 3650 4550
+Wire Wire Line
+	2900 4950 3050 4950
+Text Label 4350 6650 0    50   ~ 0
+SHIFT_DATA
+Text Label 4350 6750 0    50   ~ 0
+SHIFT_CLOCK
+Text Label 4350 6850 0    50   ~ 0
+SHIFT_LATCH
+Text Label 4350 6950 0    50   ~ 0
+DECADE_RESET
+Text Label 4350 7050 0    50   ~ 0
+DECADE_CLOCK
+Wire Wire Line
+	4350 6650 4250 6650
+Wire Wire Line
+	4250 6750 4350 6750
+Wire Wire Line
+	4250 6850 4350 6850
+Wire Wire Line
+	4250 6950 4350 6950
+Wire Wire Line
+	4250 7050 4350 7050
+$Comp
+L Device:Crystal Y1
+U 1 1 60C6EA52
+P 5150 5600
+F 0 "Y1" V 5104 5731 50  0000 L CNN
+F 1 "16MHz" V 5195 5731 50  0000 L CNN
+F 2 "Crystals:Crystal_HC49-U_Vertical" H 5150 5600 50  0001 C CNN
+F 3 "~" H 5150 5600 50  0001 C CNN
+	1    5150 5600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C7
+U 1 1 60C6EB04
+P 5800 5350
+F 0 "C7" V 5548 5350 50  0000 C CNN
+F 1 "22uF" V 5639 5350 50  0000 C CNN
+F 2 "Capacitors_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 5838 5200 50  0001 C CNN
+F 3 "~" H 5800 5350 50  0001 C CNN
+	1    5800 5350
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C8
+U 1 1 60C6EC43
+P 5800 5850
+F 0 "C8" V 5548 5850 50  0000 C CNN
+F 1 "22uF" V 5639 5850 50  0000 C CNN
+F 2 "Capacitors_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 5838 5700 50  0001 C CNN
+F 3 "~" H 5800 5850 50  0001 C CNN
+	1    5800 5850
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4950 5850 5150 5850
+Wire Wire Line
+	5650 5350 5150 5350
+Wire Wire Line
+	5150 5450 5150 5350
+Wire Wire Line
+	5150 5350 4950 5350
+Wire Wire Line
+	5150 5750 5150 5850
+Wire Wire Line
+	5150 5850 5650 5850
+$Comp
+L power:GND #PWR0101
+U 1 1 60C8735F
+P 6150 6050
+F 0 "#PWR0101" H 6150 5800 50  0001 C CNN
+F 1 "GND" H 6155 5877 50  0000 C CNN
+F 2 "" H 6150 6050 50  0001 C CNN
+F 3 "" H 6150 6050 50  0001 C CNN
+	1    6150 6050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5950 5850 6150 5850
+Wire Wire Line
+	6150 5850 6150 6050
+Wire Wire Line
+	5950 5350 6150 5350
+Wire Wire Line
+	6150 5350 6150 5850
+Connection ~ 6150 5850
+Text Label 4400 6450 0    50   ~ 0
+RESET
+Wire Wire Line
+	4400 6450 4250 6450
+$Comp
+L Connector_Generic:Conn_02x03_Odd_Even J2
+U 1 1 60CB71C7
+P 1900 7000
+F 0 "J2" H 1950 7317 50  0000 C CNN
+F 1 "Conn_02x03_Odd_Even" H 1950 7226 50  0000 C CNN
+F 2 "HandheldGameFootprints:ISP_Header" H 1900 7000 50  0001 C CNN
+F 3 "~" H 1900 7000 50  0001 C CNN
+	1    1900 7000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0109
+U 1 1 60CB72D1
+P 2500 6700
+F 0 "#PWR0109" H 2500 6550 50  0001 C CNN
+F 1 "+5V" H 2515 6873 50  0000 C CNN
+F 2 "" H 2500 6700 50  0001 C CNN
+F 3 "" H 2500 6700 50  0001 C CNN
+	1    2500 6700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2500 6700 2500 6900
+Wire Wire Line
+	2500 6900 2200 6900
+$Comp
+L power:GND #PWR0110
+U 1 1 60CBE28D
+P 2500 7300
+F 0 "#PWR0110" H 2500 7050 50  0001 C CNN
+F 1 "GND" H 2505 7127 50  0000 C CNN
+F 2 "" H 2500 7300 50  0001 C CNN
+F 3 "" H 2500 7300 50  0001 C CNN
+	1    2500 7300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2500 7300 2500 7100
+Wire Wire Line
+	2500 7100 2200 7100
+Text Label 2300 7000 0    50   ~ 0
+MOSI
+Text Label 1300 6900 0    50   ~ 0
+MISO
+Text Label 1300 7000 0    50   ~ 0
+SCK
+Text Label 1300 7100 0    50   ~ 0
+RESET
+Wire Wire Line
+	1300 6900 1700 6900
+Wire Wire Line
+	1300 7000 1700 7000
+Wire Wire Line
+	2200 7000 2300 7000
+Wire Wire Line
+	3650 7650 3650 7800
+$Comp
+L Device:R R1
+U 1 1 60D5B940
+P 1000 6750
+F 0 "R1" H 1070 6796 50  0000 L CNN
+F 1 "10k" H 1070 6705 50  0000 L CNN
+F 2 "Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" V 930 6750 50  0001 C CNN
+F 3 "~" H 1000 6750 50  0001 C CNN
+	1    1000 6750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0111
+U 1 1 60D5BA8A
+P 1000 6400
+F 0 "#PWR0111" H 1000 6250 50  0001 C CNN
+F 1 "+5V" H 1015 6573 50  0000 C CNN
+F 2 "" H 1000 6400 50  0001 C CNN
+F 3 "" H 1000 6400 50  0001 C CNN
+	1    1000 6400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 6400 1000 6600
+Wire Wire Line
+	1000 6900 1000 7100
+Wire Wire Line
+	1000 7100 1700 7100
+Text Label 4350 5450 0    50   ~ 0
+SCK
+Text Label 4350 5350 0    50   ~ 0
+MISO
+Text Label 4350 5250 0    50   ~ 0
+MOSI
+Wire Wire Line
+	4350 5250 4250 5250
+Wire Wire Line
+	4250 5350 4350 5350
+Wire Wire Line
+	4350 5450 4250 5450
+$Sheet
+S 7500 2700 900  1800
+U 60D8EB55
+F0 "Matrix" 50
+F1 "matrix.sch" 50
+F2 "C15" I R 8400 4350 50 
+F3 "C14" I R 8400 4250 50 
+F4 "C13" I R 8400 4150 50 
+F5 "C12" I R 8400 4050 50 
+F6 "C11" I R 8400 3950 50 
+F7 "C10" I R 8400 3850 50 
+F8 "C9" I R 8400 3750 50 
+F9 "C8" I R 8400 3650 50 
+F10 "C7" I R 8400 3550 50 
+F11 "C6" I R 8400 3450 50 
+F12 "C5" I R 8400 3350 50 
+F13 "C4" I R 8400 3250 50 
+F14 "C3" I R 8400 3150 50 
+F15 "C2" I R 8400 3050 50 
+F16 "C1" I R 8400 2950 50 
+F17 "C0" I R 8400 2850 50 
+F18 "R0" I L 7500 2850 50 
+F19 "R1" I L 7500 2950 50 
+F20 "R2" I L 7500 3050 50 
+F21 "R3" I L 7500 3150 50 
+F22 "R4" I L 7500 3250 50 
+F23 "R5" I L 7500 3350 50 
+F24 "R6" I L 7500 3450 50 
+F25 "R7" I L 7500 3550 50 
+F26 "R8" I L 7500 3650 50 
+F27 "R9" I L 7500 3750 50 
+$EndSheet
+Wire Wire Line
+	6550 4150 6550 4250
+$Comp
+L HandheldGameSymbols:1825910-6 SW1
+U 1 1 60DB3ACE
+P 750 1050
+F 0 "SW1" H 1278 646 50  0000 L CNN
+F 1 "1825910-6" H 1278 555 50  0000 L CNN
+F 2 "HandheldGameFootprints:1825910-6" H 550 1050 50  0001 C CNN
+F 3 "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1825910&DocType=Customer+Drawing&DocLang=English" H 550 1050 50  0001 C CNN
+	1    750  1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R28
+U 1 1 60DD5F34
+P 750 850
+F 0 "R28" H 820 896 50  0000 L CNN
+F 1 "10k" H 820 805 50  0000 L CNN
+F 2 "Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" V 680 850 50  0001 C CNN
+F 3 "~" H 750 850 50  0001 C CNN
+	1    750  850 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0113
+U 1 1 60DD5FDB
+P 750 700
+F 0 "#PWR0113" H 750 550 50  0001 C CNN
+F 1 "+5V" H 750 850 50  0000 C CNN
+F 2 "" H 750 700 50  0001 C CNN
+F 3 "" H 750 700 50  0001 C CNN
+	1    750  700 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	550  1950 750  1950
+Wire Wire Line
+	1150 1950 1350 1950
+Wire Wire Line
+	1350 1950 1350 1050
+Wire Wire Line
+	1350 1050 1150 1050
+Wire Wire Line
+	750  1050 550  1050
+Wire Wire Line
+	550  1050 550  1950
+Text Label 750  1050 0    50   ~ 0
+UP_BUTTON
+$Comp
+L HandheldGameSymbols:1825910-6 SW5
+U 1 1 60E15E7B
+P 1950 1050
+F 0 "SW5" H 2478 646 50  0000 L CNN
+F 1 "1825910-6" H 2478 555 50  0000 L CNN
+F 2 "HandheldGameFootprints:1825910-6" H 1750 1050 50  0001 C CNN
+F 3 "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1825910&DocType=Customer+Drawing&DocLang=English" H 1750 1050 50  0001 C CNN
+	1    1950 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R32
+U 1 1 60E15E82
+P 1950 850
+F 0 "R32" H 2020 896 50  0000 L CNN
+F 1 "10k" H 2020 805 50  0000 L CNN
+F 2 "Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" V 1880 850 50  0001 C CNN
+F 3 "~" H 1950 850 50  0001 C CNN
+	1    1950 850 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0114
+U 1 1 60E15E89
+P 1950 700
+F 0 "#PWR0114" H 1950 550 50  0001 C CNN
+F 1 "+5V" H 1965 873 50  0000 C CNN
+F 2 "" H 1950 700 50  0001 C CNN
+F 3 "" H 1950 700 50  0001 C CNN
+	1    1950 700 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1750 1950 1950 1950
+Wire Wire Line
+	2350 1950 2550 1950
+Wire Wire Line
+	2550 1950 2550 1050
+Wire Wire Line
+	2550 1050 2350 1050
+Wire Wire Line
+	1950 1050 1750 1050
+Wire Wire Line
+	1750 1050 1750 1950
+Text Label 1950 1050 0    50   ~ 0
+LEFT_BUTTON
+$Comp
+L HandheldGameSymbols:1825910-6 SW6
+U 1 1 60E2001D
+P 3200 1050
+F 0 "SW6" H 3728 646 50  0000 L CNN
+F 1 "1825910-6" H 3728 555 50  0000 L CNN
+F 2 "HandheldGameFootprints:1825910-6" H 3000 1050 50  0001 C CNN
+F 3 "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1825910&DocType=Customer+Drawing&DocLang=English" H 3000 1050 50  0001 C CNN
+	1    3200 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R33
+U 1 1 60E20024
+P 3200 850
+F 0 "R33" H 3270 896 50  0000 L CNN
+F 1 "10k" H 3270 805 50  0000 L CNN
+F 2 "Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" V 3130 850 50  0001 C CNN
+F 3 "~" H 3200 850 50  0001 C CNN
+	1    3200 850 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0115
+U 1 1 60E2002B
+P 3200 700
+F 0 "#PWR0115" H 3200 550 50  0001 C CNN
+F 1 "+5V" H 3215 873 50  0000 C CNN
+F 2 "" H 3200 700 50  0001 C CNN
+F 3 "" H 3200 700 50  0001 C CNN
+	1    3200 700 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3000 1950 3200 1950
+Wire Wire Line
+	3600 1950 3800 1950
+Wire Wire Line
+	3800 1950 3800 1050
+Wire Wire Line
+	3800 1050 3600 1050
+Wire Wire Line
+	3200 1050 3000 1050
+Wire Wire Line
+	3000 1050 3000 1950
+Text Label 3200 1050 0    50   ~ 0
+DOWN_BUTTON
+$Comp
+L HandheldGameSymbols:1825910-6 SW8
+U 1 1 60E2AEBF
+P 4450 1050
+F 0 "SW8" H 4978 646 50  0000 L CNN
+F 1 "1825910-6" H 4978 555 50  0000 L CNN
+F 2 "HandheldGameFootprints:1825910-6" H 4250 1050 50  0001 C CNN
+F 3 "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1825910&DocType=Customer+Drawing&DocLang=English" H 4250 1050 50  0001 C CNN
+	1    4450 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R35
+U 1 1 60E2AEC6
+P 4450 850
+F 0 "R35" H 4520 896 50  0000 L CNN
+F 1 "10k" H 4520 805 50  0000 L CNN
+F 2 "Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" V 4380 850 50  0001 C CNN
+F 3 "~" H 4450 850 50  0001 C CNN
+	1    4450 850 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0116
+U 1 1 60E2AECD
+P 4450 700
+F 0 "#PWR0116" H 4450 550 50  0001 C CNN
+F 1 "+5V" H 4465 873 50  0000 C CNN
+F 2 "" H 4450 700 50  0001 C CNN
+F 3 "" H 4450 700 50  0001 C CNN
+	1    4450 700 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4250 1950 4450 1950
+Wire Wire Line
+	4850 1950 5050 1950
+Wire Wire Line
+	5050 1950 5050 1050
+Wire Wire Line
+	5050 1050 4850 1050
+Wire Wire Line
+	4450 1050 4250 1050
+Wire Wire Line
+	4250 1050 4250 1950
+Text Label 4450 1050 0    50   ~ 0
+RIGHT_BUTTON
+$Comp
+L HandheldGameSymbols:1825910-6 SW2
+U 1 1 60E36A24
+P 750 2500
+F 0 "SW2" H 1278 2096 50  0000 L CNN
+F 1 "1825910-6" H 1278 2005 50  0000 L CNN
+F 2 "HandheldGameFootprints:1825910-6" H 550 2500 50  0001 C CNN
+F 3 "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1825910&DocType=Customer+Drawing&DocLang=English" H 550 2500 50  0001 C CNN
+	1    750  2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R29
+U 1 1 60E36A2B
+P 750 2300
+F 0 "R29" H 820 2346 50  0000 L CNN
+F 1 "10k" H 820 2255 50  0000 L CNN
+F 2 "Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" V 680 2300 50  0001 C CNN
+F 3 "~" H 750 2300 50  0001 C CNN
+	1    750  2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0117
+U 1 1 60E36A32
+P 750 2150
+F 0 "#PWR0117" H 750 2000 50  0001 C CNN
+F 1 "+5V" H 765 2323 50  0000 C CNN
+F 2 "" H 750 2150 50  0001 C CNN
+F 3 "" H 750 2150 50  0001 C CNN
+	1    750  2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	550  3400 750  3400
+Wire Wire Line
+	1150 3400 1350 3400
+Wire Wire Line
+	1350 3400 1350 2500
+Wire Wire Line
+	1350 2500 1150 2500
+Wire Wire Line
+	750  2500 550  2500
+Wire Wire Line
+	550  2500 550  3400
+Text Label 750  2500 0    50   ~ 0
+A_BUTTON
+$Comp
+L HandheldGameSymbols:1825910-6 SW4
+U 1 1 60E434F0
+P 1900 2500
+F 0 "SW4" H 2428 2096 50  0000 L CNN
+F 1 "1825910-6" H 2428 2005 50  0000 L CNN
+F 2 "HandheldGameFootprints:1825910-6" H 1700 2500 50  0001 C CNN
+F 3 "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1825910&DocType=Customer+Drawing&DocLang=English" H 1700 2500 50  0001 C CNN
+	1    1900 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R31
+U 1 1 60E434F7
+P 1900 2300
+F 0 "R31" H 1970 2346 50  0000 L CNN
+F 1 "10k" H 1970 2255 50  0000 L CNN
+F 2 "Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" V 1830 2300 50  0001 C CNN
+F 3 "~" H 1900 2300 50  0001 C CNN
+	1    1900 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0118
+U 1 1 60E434FE
+P 1900 2150
+F 0 "#PWR0118" H 1900 2000 50  0001 C CNN
+F 1 "+5V" H 1915 2323 50  0000 C CNN
+F 2 "" H 1900 2150 50  0001 C CNN
+F 3 "" H 1900 2150 50  0001 C CNN
+	1    1900 2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1700 3400 1900 3400
+Wire Wire Line
+	2300 3400 2500 3400
+Wire Wire Line
+	2500 3400 2500 2500
+Wire Wire Line
+	2500 2500 2300 2500
+Wire Wire Line
+	1900 2500 1700 2500
+Wire Wire Line
+	1700 2500 1700 3400
+Text Label 1900 2500 0    50   ~ 0
+B_BUTTON
+$Comp
+L HandheldGameSymbols:1825910-6 SW7
+U 1 1 60E50F18
+P 3200 2500
+F 0 "SW7" H 3728 2096 50  0000 L CNN
+F 1 "1825910-6" H 3728 2005 50  0000 L CNN
+F 2 "HandheldGameFootprints:1825910-6" H 3000 2500 50  0001 C CNN
+F 3 "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1825910&DocType=Customer+Drawing&DocLang=English" H 3000 2500 50  0001 C CNN
+	1    3200 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R34
+U 1 1 60E50F1F
+P 3200 2300
+F 0 "R34" H 3270 2346 50  0000 L CNN
+F 1 "10k" H 3270 2255 50  0000 L CNN
+F 2 "Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" V 3130 2300 50  0001 C CNN
+F 3 "~" H 3200 2300 50  0001 C CNN
+	1    3200 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0119
+U 1 1 60E50F26
+P 3200 2150
+F 0 "#PWR0119" H 3200 2000 50  0001 C CNN
+F 1 "+5V" H 3215 2323 50  0000 C CNN
+F 2 "" H 3200 2150 50  0001 C CNN
+F 3 "" H 3200 2150 50  0001 C CNN
+	1    3200 2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3000 3400 3200 3400
+Wire Wire Line
+	3600 3400 3800 3400
+Wire Wire Line
+	3800 3400 3800 2500
+Wire Wire Line
+	3800 2500 3600 2500
+Wire Wire Line
+	3200 2500 3000 2500
+Wire Wire Line
+	3000 2500 3000 3400
+Text Label 3200 2500 0    50   ~ 0
+START_BUTTON
+$Comp
+L HandheldGameSymbols:1825910-6 SW3
+U 1 1 60E5F782
+P 750 3950
+F 0 "SW3" H 1278 3546 50  0000 L CNN
+F 1 "1825910-6" H 1278 3455 50  0000 L CNN
+F 2 "HandheldGameFootprints:1825910-6" H 550 3950 50  0001 C CNN
+F 3 "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1825910&DocType=Customer+Drawing&DocLang=English" H 550 3950 50  0001 C CNN
+	1    750  3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R30
+U 1 1 60E5F789
+P 750 3750
+F 0 "R30" H 820 3796 50  0000 L CNN
+F 1 "10k" H 820 3705 50  0000 L CNN
+F 2 "Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical" V 680 3750 50  0001 C CNN
+F 3 "~" H 750 3750 50  0001 C CNN
+	1    750  3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0120
+U 1 1 60E5F790
+P 750 3600
+F 0 "#PWR0120" H 750 3450 50  0001 C CNN
+F 1 "+5V" H 765 3773 50  0000 C CNN
+F 2 "" H 750 3600 50  0001 C CNN
+F 3 "" H 750 3600 50  0001 C CNN
+	1    750  3600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	550  4850 750  4850
+Wire Wire Line
+	1150 4850 1350 4850
+Wire Wire Line
+	1350 4850 1350 3950
+Wire Wire Line
+	1350 3950 1150 3950
+Wire Wire Line
+	750  3950 550  3950
+Wire Wire Line
+	550  3950 550  4850
+Text Label 750  3950 0    50   ~ 0
+SELECT_BUTTON
+Text Label 4400 5850 0    50   ~ 0
+A_BUTTON
+Text Label 4400 5950 0    50   ~ 0
+B_BUTTON
+Text Label 4400 6050 0    50   ~ 0
+UP_BUTTON
+Text Label 4400 6150 0    50   ~ 0
+LEFT_BUTTON
+Text Label 4400 6250 0    50   ~ 0
+DOWN_BUTTON
+Text Label 4400 6350 0    50   ~ 0
+RIGHT_BUTTON
+Text Label 4350 5050 0    50   ~ 0
+START_BUTTON
+Text Label 4350 5150 0    50   ~ 0
+SELECT_BUTTON
+Wire Wire Line
+	4350 5150 4250 5150
+Wire Wire Line
+	4250 5050 4350 5050
+Connection ~ 5150 5350
+Connection ~ 5150 5850
+Wire Wire Line
+	4950 5550 4950 5350
+Wire Wire Line
+	4250 5550 4950 5550
+Wire Wire Line
+	4950 5850 4950 5650
+Wire Wire Line
+	4950 5650 4250 5650
+Wire Wire Line
+	4400 5850 4250 5850
+Wire Wire Line
+	4400 5950 4250 5950
+Wire Wire Line
+	4250 6050 4400 6050
+Wire Wire Line
+	4250 6150 4400 6150
+Wire Wire Line
+	4400 6250 4250 6250
+Wire Wire Line
+	4250 6350 4400 6350
+Wire Wire Line
+	750  1050 750  1000
+Wire Wire Line
+	1950 1000 1950 1050
+Wire Wire Line
+	3200 1050 3200 1000
+Wire Wire Line
+	4450 1050 4450 1000
+Wire Wire Line
+	750  2450 750  2500
+Wire Wire Line
+	1900 2450 1900 2500
+Wire Wire Line
+	3200 2450 3200 2500
+Wire Wire Line
+	750  3950 750  3900
+$Comp
+L power:GND #PWR0121
+U 1 1 611FA13F
+P 1150 4850
+F 0 "#PWR0121" H 1150 4600 50  0001 C CNN
+F 1 "GND" H 1155 4677 50  0000 C CNN
+F 2 "" H 1150 4850 50  0001 C CNN
+F 3 "" H 1150 4850 50  0001 C CNN
+	1    1150 4850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0122
+U 1 1 611FA1CB
+P 1150 3400
+F 0 "#PWR0122" H 1150 3150 50  0001 C CNN
+F 1 "GND" H 1155 3227 50  0000 C CNN
+F 2 "" H 1150 3400 50  0001 C CNN
+F 3 "" H 1150 3400 50  0001 C CNN
+	1    1150 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0123
+U 1 1 611FA257
+P 2300 3400
+F 0 "#PWR0123" H 2300 3150 50  0001 C CNN
+F 1 "GND" H 2305 3227 50  0000 C CNN
+F 2 "" H 2300 3400 50  0001 C CNN
+F 3 "" H 2300 3400 50  0001 C CNN
+	1    2300 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0124
+U 1 1 611FA388
+P 3600 3400
+F 0 "#PWR0124" H 3600 3150 50  0001 C CNN
+F 1 "GND" H 3605 3227 50  0000 C CNN
+F 2 "" H 3600 3400 50  0001 C CNN
+F 3 "" H 3600 3400 50  0001 C CNN
+	1    3600 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0125
+U 1 1 611FA53D
+P 1150 1950
+F 0 "#PWR0125" H 1150 1700 50  0001 C CNN
+F 1 "GND" H 1155 1777 50  0000 C CNN
+F 2 "" H 1150 1950 50  0001 C CNN
+F 3 "" H 1150 1950 50  0001 C CNN
+	1    1150 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0126
+U 1 1 611FA5C9
+P 2350 1950
+F 0 "#PWR0126" H 2350 1700 50  0001 C CNN
+F 1 "GND" H 2355 1777 50  0000 C CNN
+F 2 "" H 2350 1950 50  0001 C CNN
+F 3 "" H 2350 1950 50  0001 C CNN
+	1    2350 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0127
+U 1 1 611FA655
+P 3600 1950
+F 0 "#PWR0127" H 3600 1700 50  0001 C CNN
+F 1 "GND" H 3605 1777 50  0000 C CNN
+F 2 "" H 3600 1950 50  0001 C CNN
+F 3 "" H 3600 1950 50  0001 C CNN
+	1    3600 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0128
+U 1 1 611FA6E1
+P 4850 1950
+F 0 "#PWR0128" H 4850 1700 50  0001 C CNN
+F 1 "GND" H 4855 1777 50  0000 C CNN
+F 2 "" H 4850 1950 50  0001 C CNN
+F 3 "" H 4850 1950 50  0001 C CNN
+	1    4850 1950
+	1    0    0    -1  
+$EndComp
+NoConn ~ 8400 6050
+NoConn ~ 4250 7150
+NoConn ~ 4250 7250
+NoConn ~ 4250 7350
+NoConn ~ 4250 4950
+NoConn ~ 5800 3150
+$EndSCHEMATC
