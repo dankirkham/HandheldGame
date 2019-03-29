@@ -1,2 +1,4 @@
 # HandheldGame
-Handheld game system with dot matrix display
+DOT MATRIX WITHOUT STEREO SOUND
+
+![HandheldGame Assembly](./pics/assembly.jpg)
