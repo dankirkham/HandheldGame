@@ -1,0 +1,42 @@
+#ifndef Snek_h
+#define Snek_h
+
+#include "Game.h"
+#include "Input.h"
+#include "Screen.h"
+
+class Snek : Game
+{
+public:
+  static const int DELAY = 100; // ms
+  static const int MAX_LENGTH = 100;
+
+  Snek(Screen* screen, Input *input);
+  void tick();
+private:
+  Input *input;
+  Screen *screen;
+  void init();
+
+  enum Direction {
+    UP,
+    RIGHT,
+    DOWN,
+    LEFT
+  };
+
+  struct State {
+    short len;
+    short food_x;
+    short food_y;
+    short body_x[Snek::MAX_LENGTH];
+    short body_y[Snek::MAX_LENGTH];
+    Snek::Direction dir;
+    bool game_over;
+    bool paused;
+  };
+
+  Snek::State state;
+};
+
+#endif
