@@ -70,15 +70,24 @@ void Snek::tick() {
     }
 
     // Check Mr. Snek for game over
-    if (
+    bool head_hit_wall = (
       new_head_x < 0 ||
       new_head_x > COLUMNS - 1 ||
       new_head_y < 0 ||
       new_head_y > ROWS - 1
-    ) {
-      state.game_over = true;
+    );
+
+    bool head_hit_body = false;
+    for (int i = 1; i < state.len; i++) {
+      if (new_head_x == state.body_x[i] && new_head_y == state.body_y[i]) {
+        head_hit_body = true;
+        break;
+      }
     }
-    else {
+
+    if (head_hit_wall || head_hit_body) {
+      state.game_over = true;
+    } else {
       state.body_x[0] = new_head_x;
       state.body_y[0] = new_head_y;
     }
@@ -92,10 +101,21 @@ void Snek::tick() {
       state.body_x[state.len - 1] = state.body_x[state.len - 2];
       state.body_y[state.len - 1] = state.body_y[state.len - 2];
 
-      // New foods
-      state.food_x = random(0, COLUMNS - 1);
-      state.food_y = random(0, ROWS - 1);
-      // TODO: Make food not spawn inside of Mr. Snek
+      // New foods; this will infinite loop when you win. Consider it an easter
+      // egg.
+      bool food_in_body = false;
+      do {
+        state.food_x = random(0, COLUMNS - 1);
+        state.food_y = random(0, ROWS - 1);
+
+        bool food_in_body = false;
+        for (int i = 0; i < state.len; i++) {
+          if (state.food_x == state.body_x[i] && state.food_y == state.body_y[i]) {
+            food_in_body = true;
+            break;
+          }
+        }
+      } while (food_in_body);
     }
   }
 
