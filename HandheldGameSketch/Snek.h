@@ -5,7 +5,7 @@
 #include "Input.h"
 #include "Screen.h"
 
-class Snek : Game
+class Snek : public Game
 {
 public:
   static const int DELAY = 100; // ms
@@ -13,6 +13,7 @@ public:
 
   Snek(Screen* screen, Input *input);
   void tick();
+  int getDelay();
 private:
   Input *input;
   Screen *screen;

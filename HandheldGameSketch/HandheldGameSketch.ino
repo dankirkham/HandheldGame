@@ -1,17 +1,22 @@
-#include "Snek.h"
-#include "Pins.h"
+#include "Brick.h"
+#include "Game.h"
 #include "Input.h"
+#include "Pins.h"
 #include "Screen.h"
+#include "Snek.h"
 
 int counter;
 int input_counter;
 Input *input = new Input();
 Screen *screen = new Screen();
 Snek *snek = new Snek(screen, input);
+Brick *brick = new Brick(screen, input);
+Game *game = brick;
 
 void setup() {
   // Timer config
-  counter = Snek::DELAY;
+  counter = game->getDelay();
+  input_counter = Input::DELAY;
   TCCR0A = (1<<WGM01); // CTC mode
   OCR0A = 0xF9; // 1 ms
   TIMSK0 |= (1<<OCIE0A); // Interrupt enable
@@ -35,8 +40,8 @@ void loop() {}
 ISR(TIMER0_COMPA_vect) {
   counter--;
   if (counter == 0) {
-    counter = Snek::DELAY;
-    snek->tick();
+    counter = game->getDelay();
+    game->tick();
   }
 
   input_counter--;

@@ -10,6 +10,10 @@ Snek::Snek(Screen* screen, Input* input) {
   this->init();
 }
 
+int Snek::getDelay() {
+  return Snek::DELAY;
+}
+
 void Snek::init() {
   // Init the snek
   state.dir = RIGHT;
