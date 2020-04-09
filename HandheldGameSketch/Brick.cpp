@@ -183,22 +183,15 @@ void Brick::tick() {
         // Bounce y or game over
         if (next_ball_y < 0) {
           state.ball_vel_y = 1;
-
-          // Move ball again, in case it bounced
-          next_ball_x = state.ball_pos_x + state.ball_vel_x;
-          next_ball_y = state.ball_pos_y + state.ball_vel_y;
           collision = true;
         } else if (next_ball_y > (ROWS - 1)) {
-          state.ball_vel_x = 0;
-          state.ball_vel_y = 0;
-
-          // Move ball again, in case it bounced
-          next_ball_x = state.ball_pos_x + state.ball_vel_x;
-          next_ball_y = state.ball_pos_y + state.ball_vel_y;
-
           state.game_over = true;
           break;
         }
+
+        // Move ball again, in case it bounced
+        next_ball_x = state.ball_pos_x + state.ball_vel_x;
+        next_ball_y = state.ball_pos_y + state.ball_vel_y;
 
       } while (collision);
 
