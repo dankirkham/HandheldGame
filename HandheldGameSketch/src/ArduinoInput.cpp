@@ -1,3 +1,5 @@
+#ifdef ARDUINO
+
 #include "Input.h"
 #include "Pins.h"
 #include "Arduino.h"
@@ -114,3 +116,5 @@ void Input::handleC() {
     }
   }
 }
+
+#endif

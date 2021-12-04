@@ -1,3 +1,5 @@
+#ifdef ARDUINO
+
 #include "Screen.h"
 #include "Pins.h"
 #include "Arduino.h"
@@ -63,3 +65,5 @@ void Screen::erase() {
 bool* Screen::getBuffer() {
   return this->buf;
 }
+
+#endif

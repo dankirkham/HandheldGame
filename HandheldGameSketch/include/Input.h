@@ -1,8 +1,8 @@
 #ifndef Input_h
 #define Input_h
 
-class Input {
-private:
+class IInput {
+protected:
   static const int DEBOUNCE_COUNT = 4;
 
   bool start_pressed;
@@ -25,11 +25,14 @@ private:
 public:
   static const int DELAY = 5;
 
-  Input();
-  bool keyDown(int key);
-  void handleB();
-  void handleC();
-  void tick();
+  virtual bool keyDown(int key) = 0;
+  virtual void tick() = 0;
 };
+
+#ifdef ARDUINO
+#include "ArduinoInput.h"
+#else
+#include "GuiInput.h"
+#endif
 
 #endif

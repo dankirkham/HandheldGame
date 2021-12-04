@@ -1,8 +1,7 @@
 #include "Game.h"
 #include "Snek.h"
-#include "Pins.h"
 #include "Screen.h"
-#include "Arduino.h"
+#include "Pins.h"
 
 Snek::Snek(Screen* screen, Input* input) {
   this->screen = screen;

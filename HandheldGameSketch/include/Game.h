@@ -5,10 +5,10 @@
 
 class Game
 {
-  public:
-    virtual int getDelay();
-    virtual void init();
-    virtual void tick();
+public:
+  virtual int getDelay() = 0;
+  virtual void init() = 0;
+  virtual void tick() = 0;
 };
 
 #endif

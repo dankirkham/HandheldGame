@@ -1,6 +1,20 @@
 #ifndef Pins_h
 #define Pins_h
 
+#ifdef ARDUINO
+#include "Arduino.h"
+#else
+#define A0 11
+#define A1 12
+#define A2 13
+#define A3 14
+#define A4 15
+#define A5 16
+
+int random(int, int);
+
+#endif
+
 #define PIN_SHIFT_DATA 0 // PD0
 #define PIN_SHIFT_CLOCK 1 // PD1
 #define PIN_SHIFT_LATCH 2 // PD2
@@ -24,8 +38,5 @@
 #define RAW_PIN_BUTTON_LEFT 3
 #define RAW_PIN_BUTTON_DOWN 4
 #define RAW_PIN_BUTTON_RIGHT 5
-
-#define ROWS 10
-#define COLUMNS 16
 
 #endif

@@ -2,11 +2,10 @@
 #include "Brick.h"
 #include "Pins.h"
 #include "Screen.h"
-#include "Arduino.h"
 
 const int PADDLE_Y = ROWS - 1;
 
-Brick::Brick(Screen* screen, Input* input) {
+Brick::Brick(Screen* screen, Input* input) : Game() {
   this->screen = screen;
   this->input = input;
   this->init();
