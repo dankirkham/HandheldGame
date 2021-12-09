@@ -19,7 +19,7 @@ set(handheld_game_SRCS
   )
 
 if(UNIX)
-  add_executable(handleheld_game
+  add_executable(handheld_game
     HandheldGameSketch.ino
 
     ArduinoInput.cpp
@@ -34,4 +34,6 @@ if(UNIX)
     Brick.cpp
     Snek.cpp
     )
+
+  target_link_libraries(handheld_game Qt5::Widgets)
 endif()

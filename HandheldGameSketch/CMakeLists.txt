@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.12)
 
 project(handheld_game)
 
+if(UNIX)
+  find_package(Qt5 COMPONENTS Widgets REQUIRED)
+endif()
+
 add_subdirectory(include)
 include_directories(include)
 add_subdirectory(src)
