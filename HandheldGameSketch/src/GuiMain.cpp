@@ -1,12 +1,9 @@
 #ifndef ARDUINO
 #include <iostream>
 
+#include <QWidgets>
+
 #include "Pins.h"
-
-
-int random(int, int)
-{
-}
 
 int main()
 {

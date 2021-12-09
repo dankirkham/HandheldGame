@@ -2,6 +2,7 @@
 #include "Snek.h"
 #include "Screen.h"
 #include "Pins.h"
+#include "Random.h"
 
 Snek::Snek(Screen* screen, Input* input) {
   this->screen = screen;

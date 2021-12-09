@@ -10,9 +10,6 @@
 #define A3 14
 #define A4 15
 #define A5 16
-
-int random(int, int);
-
 #endif
 
 #define PIN_SHIFT_DATA 0 // PD0
