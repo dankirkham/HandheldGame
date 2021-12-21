@@ -1,13 +1,32 @@
 #ifndef ARDUINO
 
 #include "Input.h"
-bool keyDown(int key)
+
+Input::Input()
 {
-  return false;
+  for (int i = 0; i < 17; i++)
+  {
+    keys[i] = false;
+  }
 }
 
-void tick()
+bool Input::keyDown(int key)
 {
+  return keys[key];
+}
+
+void Input::tick()
+{
+}
+
+void Input::keyPressEvent(int key)
+{
+  keys[key] = true;
+}
+
+void Input::keyReleaseEvent(int key)
+{
+  keys[key] = false;
 }
 
 #endif

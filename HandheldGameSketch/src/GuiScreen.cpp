@@ -2,8 +2,12 @@
 
 #include "Screen.h"
 
-void draw()
+void Screen::draw()
 {
+  // Swap screen and buffer
+  bool *temp = this->screen;
+  this->screen = this->buf;
+  this->buf = temp;
 }
 
 void Screen::erase() {

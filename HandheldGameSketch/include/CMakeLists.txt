@@ -7,4 +7,3 @@ set(handheld_game_HDRS
   ${CMAKE_CURRENT_SOURCE_DIR}/Snek.h
   PARENT_SCOPE
   )
-

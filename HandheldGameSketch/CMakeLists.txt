@@ -3,12 +3,15 @@ cmake_minimum_required(VERSION 3.12)
 project(handheld_game)
 
 if(UNIX)
+  set(CMAKE_AUTOMOC ON)
+  set(CMAKE_AUTORCC ON)
+  set(CMAKE_AUTOUIC ON)
   find_package(Qt5 COMPONENTS Widgets REQUIRED)
 endif()
 
-add_subdirectory(include)
 include_directories(include)
 add_subdirectory(src)
+add_subdirectory(include)
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Arduino")
   # This fixes inssues with finding the boards.txt file

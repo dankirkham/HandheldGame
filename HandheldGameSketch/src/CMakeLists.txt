@@ -28,11 +28,15 @@ if(UNIX)
     GuiInput.cpp
     GuiScreen.cpp
     GuiMain.cpp
+    MainWindow.cpp
 
     Random.cpp
 
     Brick.cpp
     Snek.cpp
+
+    # For moc to work...
+    ../include/MainWindow.h
     )
 
   target_link_libraries(handheld_game Qt5::Widgets)
