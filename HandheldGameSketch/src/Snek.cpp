@@ -49,6 +49,9 @@ void Snek::tick() {
       state.dir = LEFT;
     }
 
+    short tail_x = state.body_x[state.len - 1];
+    short tail_y = state.body_y[state.len - 1];
+
     // Move the snek body
     for (int i = state.len - 1; i > 0; i--) {
       state.body_x[i] = state.body_x[i - 1];
@@ -102,8 +105,8 @@ void Snek::tick() {
       state.len += 1;
 
       // Snek gro backwards
-      state.body_x[state.len - 1] = state.body_x[state.len - 2];
-      state.body_y[state.len - 1] = state.body_y[state.len - 2];
+      state.body_x[state.len - 1] = tail_x;
+      state.body_y[state.len - 1] = tail_y;
 
       // New foods; this will infinite loop when you win. Consider it an easter
       // egg.
@@ -112,9 +115,10 @@ void Snek::tick() {
         state.food_x = random(0, COLUMNS - 1);
         state.food_y = random(0, ROWS - 1);
 
-        bool food_in_body = false;
+        food_in_body = false;
         for (int i = 0; i < state.len; i++) {
-          if (state.food_x == state.body_x[i] && state.food_y == state.body_y[i]) {
+          if (state.food_x == state.body_x[i] &&
+              state.food_y == state.body_y[i]) {
             food_in_body = true;
             break;
           }
