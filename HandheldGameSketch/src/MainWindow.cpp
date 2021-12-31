@@ -59,7 +59,7 @@ MainWindow::MainWindow(QWidget *parent) :
   Screen *screen = new Screen();
   Snek* snek = new Snek(screen, input);
   Brick* brick = new Brick(screen, input);
-  game = brick;
+  game = snek;
 
   Matrix* t = new Matrix(this);
   t->setScreen(screen);

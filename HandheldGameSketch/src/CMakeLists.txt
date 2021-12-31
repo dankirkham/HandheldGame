@@ -11,6 +11,8 @@ set(handheld_game_SRCS
   ${CMAKE_CURRENT_SOURCE_DIR}/GuiScreen.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/GuiMain.cpp
 
+  ${CMAKE_CURRENT_SOURCE_DIR}/Font.cpp
+
   ${CMAKE_CURRENT_SOURCE_DIR}/Random.cpp
 
   ${CMAKE_CURRENT_SOURCE_DIR}/Brick.cpp
@@ -29,6 +31,8 @@ if(UNIX)
     GuiScreen.cpp
     GuiMain.cpp
     MainWindow.cpp
+
+    Font.cpp
 
     Random.cpp
 

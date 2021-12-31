@@ -3,6 +3,7 @@
 #include "Screen.h"
 #include "Pins.h"
 #include "Random.h"
+#include "Font.h"
 
 Snek::Snek(Screen* screen, Input* input) {
   this->screen = screen;
@@ -16,7 +17,7 @@ int Snek::getDelay() {
 
 void Snek::init() {
   // Init the snek
-  state.dir = RIGHT;
+  state.dir = Direction::RIGHT;
   state.len = 3;
   state.body_x[0] = 5;
   state.body_y[0] = 5;
@@ -39,14 +40,14 @@ void Snek::tick() {
     state.paused = !state.paused;
   } else if (!state.game_over && !state.paused) {
     // Change dir
-    if (input->keyDown(PIN_BUTTON_UP) && state.dir != DOWN) {
-      state.dir = UP;
-    } else if (input->keyDown(PIN_BUTTON_RIGHT) && state.dir != LEFT) {
-      state.dir = RIGHT;
-    } else if (input->keyDown(PIN_BUTTON_DOWN) && state.dir != UP) {
-      state.dir = DOWN;
-    } else if (input->keyDown(PIN_BUTTON_LEFT) && state.dir != RIGHT) {
-      state.dir = LEFT;
+    if (input->keyDown(PIN_BUTTON_UP) && state.dir != Direction::DOWN) {
+      state.dir = Direction::UP;
+    } else if (input->keyDown(PIN_BUTTON_RIGHT) && state.dir != Direction::LEFT) {
+      state.dir = Direction::RIGHT;
+    } else if (input->keyDown(PIN_BUTTON_DOWN) && state.dir != Direction::UP) {
+      state.dir = Direction::DOWN;
+    } else if (input->keyDown(PIN_BUTTON_LEFT) && state.dir != Direction::RIGHT) {
+      state.dir = Direction::LEFT;
     }
 
     short tail_x = state.body_x[state.len - 1];
@@ -62,16 +63,16 @@ void Snek::tick() {
     short new_head_x = state.body_x[0];
     short new_head_y = state.body_y[0];
     switch (state.dir) {
-      case UP:
+      case Direction::UP:
         new_head_y = state.body_y[0] - 1;
         break;
-      case RIGHT:
+      case Direction::RIGHT:
         new_head_x = state.body_x[0] + 1;
         break;
-      case DOWN:
+      case Direction::DOWN:
         new_head_y = state.body_y[0] + 1;
         break;
-      case LEFT:
+      case Direction::LEFT:
         new_head_x = state.body_x[0] - 1;
         break;
     }

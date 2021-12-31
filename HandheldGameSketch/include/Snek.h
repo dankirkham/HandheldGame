@@ -19,7 +19,7 @@ private:
   Screen *screen;
   void init();
 
-  enum Direction {
+  enum class Direction {
     UP,
     RIGHT,
     DOWN,
