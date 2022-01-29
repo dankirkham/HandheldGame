@@ -1,11 +1,9 @@
 #include "MainWindow.h"
 
-#include "Brick.h"
 #include "Constants.h"
 #include "MainWindow.h"
 #include "Pins.h"
 #include "Screen.h"
-#include "Snek.h"
 
 #include <QDebug>
 #include <QPainter>
@@ -57,9 +55,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
   input = new Input();
   Screen *screen = new Screen();
-  Snek* snek = new Snek(screen, input);
-  Brick* brick = new Brick(screen, input);
-  game = snek;
+
+  snek = new Snek(screen, input);
+  menu = new Menu(screen, input);
+  brick = new Brick(screen, input);
+
+  game = menu;
 
   Matrix* t = new Matrix(this);
   t->setScreen(screen);
@@ -159,6 +160,26 @@ void MainWindow::timerEvent(QTimerEvent *event)
     game->tick();
 
     centralWidget()->update();
+
+    games_e nextGame = game->getGameToSwitchTo();
+
+    switch (nextGame) {
+      case games_e::SNEK:
+        game = snek;
+        break;
+      case games_e::BRICK:
+        game = brick;
+        break;
+      case games_e::MENU:
+        game = menu;
+        break;
+      default:
+        break;
+    }
+
+    if (nextGame != games_e::NO_CHANGE) {
+      game->init();
+    }
   }
 
   //input_counter--;

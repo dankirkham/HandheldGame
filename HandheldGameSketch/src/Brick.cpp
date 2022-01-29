@@ -33,6 +33,11 @@ void Brick::init() {
 void Brick::tick() {
   bool* buf = screen->getBuffer();
 
+  // Back to MENU
+  if (input->keyDown(PIN_BUTTON_START) && input->keyDown(PIN_BUTTON_SELECT)) {
+    this->gameToSwitchTo = games_e::MENU;
+  }
+
   // Handle reset
   if (input->keyDown(PIN_BUTTON_SELECT)) {
     this->init();

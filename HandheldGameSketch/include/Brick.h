@@ -2,6 +2,7 @@
 #define Brick_h
 
 #include "Game.h"
+#include "Games.h"
 #include "Input.h"
 #include "Screen.h"
 

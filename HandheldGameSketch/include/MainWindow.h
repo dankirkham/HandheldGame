@@ -5,6 +5,9 @@
 
 #include "Game.h"
 #include "Input.h"
+#include "Brick.h"
+#include "Menu.h"
+#include "Snek.h"
 
 class MainWindow : public QMainWindow
 {
@@ -19,8 +22,12 @@ private:
   uint8_t counter;
   uint8_t input_counter;
   uint8_t display_counter;
-  Game* game;
   Input* input;
+
+  Menu* menu;
+  Snek* snek;
+  Brick* brick;
+  Game* game;
 
 protected:
   void keyPressEvent(QKeyEvent*);

@@ -15,6 +15,8 @@ set(handheld_game_SRCS
 
   ${CMAKE_CURRENT_SOURCE_DIR}/Random.cpp
 
+  ${CMAKE_CURRENT_SOURCE_DIR}/Game.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/Menu.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/Brick.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/Snek.cpp
   PARENT_SCOPE
@@ -36,6 +38,8 @@ if(UNIX)
 
     Random.cpp
 
+    Game.cpp
+    Menu.cpp
     Brick.cpp
     Snek.cpp
 

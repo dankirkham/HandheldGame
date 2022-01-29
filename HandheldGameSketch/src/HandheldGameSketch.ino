@@ -4,6 +4,7 @@
 #include "Pins.h"
 #include "Screen.h"
 #include "Snek.h"
+#include "Menu.h"
 
 int counter;
 int input_counter;
@@ -11,7 +12,8 @@ Input *input = new Input();
 Screen *screen = new Screen();
 Snek *snek = new Snek(screen, input);
 Brick *brick = new Brick(screen, input);
-Game *game = brick;
+Menu *menu = new Menu(screen, input);
+Game *game = menu;
 
 void setup() {
   // Timer config
@@ -51,6 +53,26 @@ ISR(TIMER0_COMPA_vect) {
   }
 
   screen->draw();
+
+  games_e nextGame = game->getGameToSwitchTo();
+
+  switch (nextGame) {
+    case games_e::SNEK:
+      game = snek;
+      break;
+    case games_e::BRICK:
+      game = brick;
+      break;
+    case games_e::MENU:
+      game = menu;
+      break;
+    default:
+      break;
+  }
+
+  if (nextGame != games_e::NO_CHANGE) {
+    game->init();
+  }
 }
 
 ISR(PCINT0_vect) {

@@ -34,7 +34,9 @@ void Snek::init() {
 void Snek::tick() {
   bool* buf = screen->getBuffer();
 
-  if (input->keyDown(PIN_BUTTON_SELECT)) {
+  if (input->keyDown(PIN_BUTTON_START) && input->keyDown(PIN_BUTTON_SELECT)) {
+    this->gameToSwitchTo = games_e::MENU;
+  } else if (input->keyDown(PIN_BUTTON_SELECT)) {
     this->init();
   } else if (input->keyDown(PIN_BUTTON_START)) {
     state.paused = !state.paused;
