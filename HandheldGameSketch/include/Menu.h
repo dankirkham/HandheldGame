@@ -14,6 +14,7 @@ struct MenuItem {
 const MenuItem menu_items[] = {
   { .text="SNEK\0", .len=4 },
   { .text="BRICK\0", .len=5 },
+  { .text="BIRB\0", .len=4 },
 //  { .text="TETRIS\0", .len=6 },
 //  { .text="DRAW\0", .len=4 },
 //  { .text="REALLY LONG TEXT LOL\0", .len=20 },

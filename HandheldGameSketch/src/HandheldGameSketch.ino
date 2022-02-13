@@ -5,6 +5,7 @@
 #include "Screen.h"
 #include "Snek.h"
 #include "Menu.h"
+#include "Birb.h"
 
 int counter;
 int input_counter;
@@ -12,6 +13,7 @@ Input *input = new Input();
 Screen *screen = new Screen();
 Snek *snek = new Snek(screen, input);
 Brick *brick = new Brick(screen, input);
+Birb *birb = new Birb(screen, input);
 Menu *menu = new Menu(screen, input);
 Game *game = menu;
 
@@ -62,6 +64,9 @@ ISR(TIMER0_COMPA_vect) {
       break;
     case games_e::BRICK:
       game = brick;
+      break;
+    case games_e::BIRB:
+      game = birb;
       break;
     case games_e::MENU:
       game = menu;

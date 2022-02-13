@@ -59,6 +59,7 @@ MainWindow::MainWindow(QWidget *parent) :
   snek = new Snek(screen, input);
   menu = new Menu(screen, input);
   brick = new Brick(screen, input);
+  birb = new Birb(screen, input);
 
   game = menu;
 
@@ -169,6 +170,9 @@ void MainWindow::timerEvent(QTimerEvent *event)
         break;
       case games_e::BRICK:
         game = brick;
+        break;
+      case games_e::BIRB:
+        game = birb;
         break;
       case games_e::MENU:
         game = menu;

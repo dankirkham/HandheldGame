@@ -19,6 +19,7 @@ set(handheld_game_SRCS
   ${CMAKE_CURRENT_SOURCE_DIR}/Menu.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/Brick.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/Snek.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/Birb.cpp
   PARENT_SCOPE
   )
 
@@ -42,6 +43,7 @@ if(UNIX)
     Menu.cpp
     Brick.cpp
     Snek.cpp
+    Birb.cpp
 
     # For moc to work...
     ../include/MainWindow.h

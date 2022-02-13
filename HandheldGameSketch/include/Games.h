@@ -5,7 +5,8 @@ enum class games_e {
   NO_CHANGE,
   MENU,
   SNEK,
-  BRICK
+  BRICK,
+  BIRB
 };
 
 #endif // _GAMES_HPP_

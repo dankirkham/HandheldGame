@@ -8,6 +8,7 @@
 #include "Brick.h"
 #include "Menu.h"
 #include "Snek.h"
+#include "Birb.h"
 
 class MainWindow : public QMainWindow
 {
@@ -28,6 +29,7 @@ private:
   Snek* snek;
   Brick* brick;
   Game* game;
+  Birb* birb;
 
 protected:
   void keyPressEvent(QKeyEvent*);

@@ -52,6 +52,9 @@ void Menu::tick() {
       case 1:
         this->gameToSwitchTo = games_e::BRICK;
         break;
+      case 2:
+        this->gameToSwitchTo = games_e::BIRB;
+        break;
       default:
         break;
     }
