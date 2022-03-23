@@ -2,31 +2,23 @@
 
 #include "Input.h"
 
-Input::Input()
+void Input::tick()
 {
-  for (int i = 0; i < 17; i++)
+  for (int i = 0; i < (int)button_e::button_count; i++)
   {
-    keys[i] = false;
+    newPress[i] = false;
   }
 }
 
-bool Input::keyDown(int key)
+void Input::keyPressEvent(button_e key)
 {
-  return keys[key];
+  pressed[(int)key] = true;
+  newPress[(int)key] = true;
 }
 
-void Input::tick()
+void Input::keyReleaseEvent(button_e key)
 {
-}
-
-void Input::keyPressEvent(int key)
-{
-  keys[key] = true;
-}
-
-void Input::keyReleaseEvent(int key)
-{
-  keys[key] = false;
+  pressed[(int)key] = false;
 }
 
 #endif

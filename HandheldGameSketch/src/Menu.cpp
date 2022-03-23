@@ -25,8 +25,6 @@ void Menu::init() {
 }
 
 void Menu::tick() {
-  bool* buf = screen->getBuffer();
-
   if (state.direction == Direction::RIGHT) {
     state.x--;
 
@@ -43,7 +41,7 @@ void Menu::tick() {
     }
   }
 
-  if (input->keyDown(PIN_BUTTON_START)) {
+  if (input->keyDown(button_e::start)) {
     // Process selection
     switch (state.selection) {
       case 0:
@@ -59,8 +57,8 @@ void Menu::tick() {
         break;
     }
   } else if (
-    input->keyDown(PIN_BUTTON_UP) ||
-    input->keyDown(PIN_BUTTON_LEFT)
+    input->keyDown(button_e::up) ||
+    input->keyDown(button_e::left)
     ) {
     state.selection--;
     state.x = 0;
@@ -71,8 +69,8 @@ void Menu::tick() {
       state.selection = 0;
     }
   } else if (
-    input->keyDown(PIN_BUTTON_DOWN) ||
-    input->keyDown(PIN_BUTTON_RIGHT)
+    input->keyDown(button_e::down) ||
+    input->keyDown(button_e::right)
     ) {
     state.selection++;
     state.x = 0;
@@ -86,6 +84,5 @@ void Menu::tick() {
   }
 
   screen->erase();
-
-  draw_text(buf, menu_items[state.selection].text, state.x, TEXT_Y);
+  draw_text(screen, menu_items[state.selection].text, state.x, TEXT_Y);
 }

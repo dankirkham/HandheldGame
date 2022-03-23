@@ -2,6 +2,7 @@
 #define __FONT_HPP__
 
 #include "Constants.h"
+#include "Screen.h"
 
 #define FONT_WIDTH 5
 #define FONT_HEIGHT 7
@@ -293,7 +294,7 @@ const bool Z[FONT_WIDTH * FONT_HEIGHT] = {
 
 } // letters
 
-void draw_text(bool*, char*, short, short);
-void draw_letter(bool*, char, short, short);
+void draw_text(Screen*, char*, short, short);
+void draw_letter(Screen*, char, short, short);
 
 #endif // __FONT_HPP__

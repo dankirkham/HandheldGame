@@ -19,14 +19,14 @@ class Matrix : public QWidget {
     p.setPen(Qt::NoPen);
 
     screen->draw();
-    auto buf = screen->getBuffer();
 
     for (int i = 0; i < ROWS; i++) {
       for (int j = 0; j < COLUMNS; j++) {
-        auto color = *(buf + i * COLUMNS + j) ? Qt::green : Qt::gray;
+        //auto color = *(buf + i * COLUMNS + j) ? Qt::green : Qt::gray;
+        auto color = screen->getPixel(j, i) ? Qt::green : Qt::gray;
         p.setBrush(color);
 
-        p.drawRect(
+        p.drawEllipse(
           j * SQUARE_SPACING + (SQUARE_SPACING - SQUARE_SIZE) / 2,
           i * SQUARE_SPACING + (SQUARE_SPACING - SQUARE_SIZE) / 2,
           SQUARE_SIZE,
@@ -84,35 +84,35 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
   auto key = event->key();
   if (key == Qt::Key_A || key == Qt::Key_Left)
   {
-    input->keyPressEvent(PIN_BUTTON_LEFT);
+    input->keyPressEvent(button_e::left);
   }
   else if (key == Qt::Key_S || key == Qt::Key_Down)
   {
-    input->keyPressEvent(PIN_BUTTON_DOWN);
+    input->keyPressEvent(button_e::down);
   }
   else if (key == Qt::Key_D || key == Qt::Key_Right)
   {
-    input->keyPressEvent(PIN_BUTTON_RIGHT);
+    input->keyPressEvent(button_e::right);
   }
   else if (key == Qt::Key_W || key == Qt::Key_Up)
   {
-    input->keyPressEvent(PIN_BUTTON_UP);
+    input->keyPressEvent(button_e::up);
   }
   else if (key == Qt::Key_Z || key == Qt::Key_Comma)
   {
-    input->keyPressEvent(PIN_BUTTON_A);
+    input->keyPressEvent(button_e::a);
   }
   else if (key == Qt::Key_X || key == Qt::Key_Period)
   {
-    input->keyPressEvent(PIN_BUTTON_B);
+    input->keyPressEvent(button_e::b);
   }
   else if (key == Qt::Key_Enter || key == Qt::Key_Return)
   {
-    input->keyPressEvent(PIN_BUTTON_START);
+    input->keyPressEvent(button_e::start);
   }
   else if (key == Qt::Key_Shift)
   {
-    input->keyPressEvent(PIN_BUTTON_SELECT);
+    input->keyPressEvent(button_e::select);
   }
 }
 
@@ -121,35 +121,35 @@ void MainWindow::keyReleaseEvent(QKeyEvent* event)
   auto key = event->key();
   if (key == Qt::Key_A || key == Qt::Key_Left)
   {
-    input->keyReleaseEvent(PIN_BUTTON_LEFT);
+    input->keyReleaseEvent(button_e::left);
   }
   else if (key == Qt::Key_S || key == Qt::Key_Down)
   {
-    input->keyReleaseEvent(PIN_BUTTON_DOWN);
+    input->keyReleaseEvent(button_e::down);
   }
   else if (key == Qt::Key_D || key == Qt::Key_Right)
   {
-    input->keyReleaseEvent(PIN_BUTTON_RIGHT);
+    input->keyReleaseEvent(button_e::right);
   }
   else if (key == Qt::Key_W || key == Qt::Key_Up)
   {
-    input->keyReleaseEvent(PIN_BUTTON_UP);
+    input->keyReleaseEvent(button_e::up);
   }
   else if (key == Qt::Key_Z || key == Qt::Key_Comma)
   {
-    input->keyReleaseEvent(PIN_BUTTON_A);
+    input->keyReleaseEvent(button_e::a);
   }
   else if (key == Qt::Key_X || key == Qt::Key_Period)
   {
-    input->keyReleaseEvent(PIN_BUTTON_B);
+    input->keyReleaseEvent(button_e::b);
   }
   else if (key == Qt::Key_Enter || key == Qt::Key_Return)
   {
-    input->keyReleaseEvent(PIN_BUTTON_START);
+    input->keyReleaseEvent(button_e::start);
   }
   else if (key == Qt::Key_Shift)
   {
-    input->keyReleaseEvent(PIN_BUTTON_SELECT);
+    input->keyReleaseEvent(button_e::select);
   }
 }
 

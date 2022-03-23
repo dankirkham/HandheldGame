@@ -2,18 +2,15 @@
 #define GuiInput_h
 
 #include "Input.h"
+#include "Pins.h"
 
 class Input : public IInput {
 public:
-  Input();
-private:
-  bool keys[17];
-public:
-  bool keyDown(int key) override;
+  bool keyDown(button_e key) override;
   void tick() override;
 public:
-  void keyPressEvent(int);
-  void keyReleaseEvent(int);
+  void keyPressEvent(button_e);
+  void keyReleaseEvent(button_e);
 };
 
 #endif

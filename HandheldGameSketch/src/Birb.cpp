@@ -36,16 +36,14 @@ void Birb::init() {
 }
 
 void Birb::tick() {
-  bool* buf = screen->getBuffer();
-
-  if (input->keyDown(PIN_BUTTON_START) && input->keyDown(PIN_BUTTON_SELECT)) {
+  if (input->keyDown(button_e::start) && input->keyDown(button_e::select)) {
     this->gameToSwitchTo = games_e::MENU;
-  } else if (input->keyDown(PIN_BUTTON_SELECT)) {
+  } else if (input->keyDown(button_e::select)) {
     this->init();
-  } else if (input->keyDown(PIN_BUTTON_START)) {
+  } else if (input->keyDown(button_e::start)) {
     state.paused = !state.paused;
   } else if (!state.game_over && !state.paused) {
-    if (input->keyDown(PIN_BUTTON_A)) {
+    if (input->keyDown(button_e::a)) {
       if (state.accel_ticks == 0) {
         state.accel_ticks = JUMP_TIME;
         state.birb_vy = 0;
@@ -97,7 +95,7 @@ void Birb::tick() {
   // Draw birb
   screen->erase();
   short y = state.birb_y / Y_MULTIPLIER;
-  *(buf + (y * COLUMNS + BIRB_X)) = true;
+  screen->setPixel(BIRB_X, y);
 
   // Draw the gates
   for (int i = 0; i < GATE_COUNT; i++) {
@@ -105,10 +103,10 @@ void Birb::tick() {
     if (gate_x >= 0 && gate_x < COLUMNS) {
       auto gate_y = state.gate_y[i];
       for (int j = 0; j < gate_y; j++) {
-        *(buf + (j * COLUMNS + gate_x)) = true;
+        screen->setPixel(gate_x, j);
       }
       for (int j = gate_y + GATE_HEIGHT; j < ROWS; j++) {
-        *(buf + (j * COLUMNS + gate_x)) = true;
+        screen->setPixel(gate_x, j);
       }
     }
   }

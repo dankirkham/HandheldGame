@@ -32,23 +32,21 @@ void Snek::init() {
 }
 
 void Snek::tick() {
-  bool* buf = screen->getBuffer();
-
-  if (input->keyDown(PIN_BUTTON_START) && input->keyDown(PIN_BUTTON_SELECT)) {
+  if (input->keyDown(button_e::start) && input->keyDown(button_e::select)) {
     this->gameToSwitchTo = games_e::MENU;
-  } else if (input->keyDown(PIN_BUTTON_SELECT)) {
+  } else if (input->keyDown(button_e::select)) {
     this->init();
-  } else if (input->keyDown(PIN_BUTTON_START)) {
+  } else if (input->keyDown(button_e::start)) {
     state.paused = !state.paused;
   } else if (!state.game_over && !state.paused) {
     // Change dir
-    if (input->keyDown(PIN_BUTTON_UP) && state.dir != Direction::DOWN) {
+    if (input->keyDown(button_e::up) && state.dir != Direction::DOWN) {
       state.dir = Direction::UP;
-    } else if (input->keyDown(PIN_BUTTON_RIGHT) && state.dir != Direction::LEFT) {
+    } else if (input->keyDown(button_e::right) && state.dir != Direction::LEFT) {
       state.dir = Direction::RIGHT;
-    } else if (input->keyDown(PIN_BUTTON_DOWN) && state.dir != Direction::UP) {
+    } else if (input->keyDown(button_e::down) && state.dir != Direction::UP) {
       state.dir = Direction::DOWN;
-    } else if (input->keyDown(PIN_BUTTON_LEFT) && state.dir != Direction::RIGHT) {
+    } else if (input->keyDown(button_e::left) && state.dir != Direction::RIGHT) {
       state.dir = Direction::LEFT;
     }
 
@@ -133,9 +131,9 @@ void Snek::tick() {
   // Paint mr snek
   screen->erase();
   for (int i = 0; i < state.len; i++) {
-    *(buf + state.body_y[i] * COLUMNS + state.body_x[i]) = true;
+    screen->setPixel(state.body_x[i], state.body_y[i]);
   }
 
   // Draw food
-  *(buf + state.food_y * COLUMNS + state.food_x) = true;
+  screen->setPixel(state.food_x, state.food_y);
 }

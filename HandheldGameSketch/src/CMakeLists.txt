@@ -11,7 +11,10 @@ set(handheld_game_SRCS
   ${CMAKE_CURRENT_SOURCE_DIR}/GuiScreen.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/GuiMain.cpp
 
+  ${CMAKE_CURRENT_SOURCE_DIR}/Pins.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/Font.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/Input.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/Screen.cpp
 
   ${CMAKE_CURRENT_SOURCE_DIR}/Random.cpp
 
@@ -35,7 +38,10 @@ if(UNIX)
     GuiMain.cpp
     MainWindow.cpp
 
+    Pins.cpp
     Font.cpp
+    Input.cpp
+    Screen.cpp
 
     Random.cpp
 

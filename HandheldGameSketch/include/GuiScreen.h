@@ -6,8 +6,6 @@
 class Screen : public IScreen {
 public:
   void draw() override;
-  void erase() override;
-  bool* getBuffer() override;
 };
 
 #endif

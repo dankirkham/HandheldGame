@@ -6,6 +6,7 @@
 class Game
 {
 public:
+  ~Game();
   virtual int getDelay() = 0;
   virtual void init() = 0;
   virtual void tick() = 0;

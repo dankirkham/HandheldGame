@@ -2,7 +2,7 @@
 #include "Font.h"
 
 void draw_text(
-  bool* buf,
+  Screen* screen,
   char* text,
   short start_x,
   short y
@@ -13,14 +13,14 @@ void draw_text(
 
   while (text[i] != '\0')
   {
-    draw_letter(buf, text[i], x + (6 * i), y);
+    draw_letter(screen, text[i], x + (6 * i), y);
 
     i++;
   }
 }
 
 void draw_letter(
-  bool* buf,
+  Screen* screen,
   char letter,
   short x,
   short y
@@ -122,7 +122,7 @@ void draw_letter(
       if (y + j >= ROWS) break;
       if (*(lbuf + j * FONT_WIDTH + i))
       {
-        *(buf + (y + j) * COLUMNS + (x + i)) = true;
+        screen->setPixel(x + i, y + j);
       }
     }
   }

@@ -2,6 +2,7 @@
 #include "Brick.h"
 #include "Pins.h"
 #include "Screen.h"
+#include "Random.h"
 
 const int PADDLE_Y = ROWS - 1;
 
@@ -31,30 +32,28 @@ void Brick::init() {
 }
 
 void Brick::tick() {
-  bool* buf = screen->getBuffer();
-
   // Back to MENU
-  if (input->keyDown(PIN_BUTTON_START) && input->keyDown(PIN_BUTTON_SELECT)) {
+  if (input->keyDown(button_e::start) && input->keyDown(button_e::select)) {
     this->gameToSwitchTo = games_e::MENU;
   }
 
   // Handle reset
-  if (input->keyDown(PIN_BUTTON_SELECT)) {
+  if (input->keyDown(button_e::select)) {
     this->init();
   }
 
-  if (input->keyDown(PIN_BUTTON_START)) {
+  if (input->keyDown(button_e::start)) {
     state.paused = !state.paused;
   }
 
   if (!state.paused && !state.game_over) {
     // Move Paddle
-    if (input->keyDown(PIN_BUTTON_LEFT)) {
+    if (input->keyDown(button_e::left)) {
       if (state.paddle_x > 1) {
         state.paddle_x -= 1;
       }
     }
-    if (input->keyDown(PIN_BUTTON_RIGHT)) {
+    if (input->keyDown(button_e::right)) {
       if (state.paddle_x < COLUMNS - 2) {
         state.paddle_x += 1;
       }
@@ -84,28 +83,52 @@ void Brick::tick() {
             // Bounce up, move left
             state.ball_vel_x = -1;
             state.ball_vel_y = -1;
+
+            // Ball has a 50% to glance and move left twice.
+            if (random(0, 1) == 1) {
+              state.ball_pos_x -= 1;
+            }
+
             collision = true;
           } else if (state.ball_pos_x == state.paddle_x + 1) {
             // Right edge of paddle
             // Bounce up, move right
             state.ball_vel_x = 1;
             state.ball_vel_y = -1;
+
+            // Ball has a 50% to glance and move right twice.
+            if (random(0, 1) == 1) {
+              state.ball_pos_x += 1;
+            }
+
             collision = true;
-          } else if (next_ball_x == state.paddle_x - 1) {
-            // Left edge of paddle
-            // Bounce up, move left
-            state.ball_vel_x = -1;
-            state.ball_vel_y = -1;
-            collision = true;
-          } else if (next_ball_x == state.paddle_x + 1) {
-            // Right edge of paddle
-            // Bounce up, move right
-            state.ball_vel_x = 1;
-            state.ball_vel_y = -1;
-            collision = true;
+          //} else if (next_ball_x == state.paddle_x - 1) {
+          //  // Left edge of paddle
+          //  // Bounce up, move left
+          //  state.ball_vel_x = -1;
+          //  state.ball_vel_y = -1;
+
+          //  // Ball has a 50% to glance and move left twice.
+          //  if (random(0, 1) == 1) {
+          //    state.ball_pos_x -= 1;
+          //  }
+
+          //  collision = true;
+          //} else if (next_ball_x == state.paddle_x + 1) {
+          //  // Right edge of paddle
+          //  // Bounce up, move right
+          //  state.ball_vel_x = 1;
+          //  state.ball_vel_y = -1;
+
+          //  // Ball has a 50% to glance and move right twice.
+          //  if (random(0, 1) == 1) {
+          //    state.ball_pos_x += 1;
+          //  }
+
+          //  collision = true;
           }
 
-          // Move ball again, in case it bounced
+            // Move ball again
           next_ball_x = state.ball_pos_x + state.ball_vel_x;
           next_ball_y = state.ball_pos_y + state.ball_vel_y;
         }
@@ -212,19 +235,19 @@ void Brick::tick() {
   screen->erase();
 
   // Draw ball
-  *(buf + state.ball_pos_y * COLUMNS + state.ball_pos_x) = true;
+  screen->setPixel(state.ball_pos_x, state.ball_pos_y);
 
   // Draw paddle
-  *(buf + PADDLE_Y * COLUMNS + state.paddle_x - 1) = true;
-  *(buf + PADDLE_Y * COLUMNS + state.paddle_x) = true;
-  *(buf + PADDLE_Y * COLUMNS + state.paddle_x + 1) = true;
+  screen->setPixel(state.paddle_x - 1, PADDLE_Y);
+  screen->setPixel(state.paddle_x, PADDLE_Y);
+  screen->setPixel(state.paddle_x + 1, PADDLE_Y);
 
   // Draw bricks
   for (int x = 0; x < COLUMNS; x++) {
     for (int y = 0; y < Brick::BRICK_ROWS; y++) {
       int i = y * COLUMNS + x;
       if (state.bricks[i]) {
-        *(buf + i) = true;
+        screen->setPixel(x, y);
       }
     }
   }

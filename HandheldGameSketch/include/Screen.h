@@ -6,14 +6,17 @@
 class IScreen {
 protected:
   bool buffer_1[ROWS * COLUMNS] = { false };
-  bool buffer_2[ROWS * COLUMNS] = { false };
+  //bool buffer_2[ROWS * COLUMNS] = { false };
   bool *screen = (bool*) this->buffer_1;
-  bool *buf = (bool*) this->buffer_2;
+  bool *buf = (bool*) this->buffer_1;
+
+public:
+  void setPixel(int x, int y);
+  bool getPixel(int x, int y);
+  void erase();
 
 public:
   virtual void draw() = 0;
-  virtual void erase() = 0;
-  virtual bool* getBuffer() = 0;
 };
 
 #ifdef ARDUINO

@@ -7,15 +7,39 @@
 #include "Menu.h"
 #include "Birb.h"
 
+void *operator new(size_t size, void *ptr)
+{
+  return ptr;
+}
+
+void operator delete(void *ptr, unsigned int size)
+{
+  for (int i = 0; i < size; i++) *((char*)ptr + i) = 0;
+}
+
 int counter;
 int input_counter;
-Input *input = new Input();
-Screen *screen = new Screen();
-Snek *snek = new Snek(screen, input);
-Brick *brick = new Brick(screen, input);
-Birb *birb = new Birb(screen, input);
-Menu *menu = new Menu(screen, input);
-Game *game = menu;
+
+static char input_buffer[sizeof(Input)];
+static Input *input = new (input_buffer) Input;
+
+static char screen_buffer[sizeof(Screen)];
+static Screen *screen = new (screen_buffer) Screen();
+
+const auto game_buffer_size = sizeof(Snek); // Snek is our biggest game
+static char game_buffer[game_buffer_size];
+
+// This helps us determine RAM utilization at compile time
+#if 0
+char (*__kaboom0)[sizeof( Input )] = 1;
+char (*__kaboom1)[sizeof( Screen )] = 1;
+char (*__kaboom2)[sizeof( Snek )] = 1;
+char (*__kaboom3)[sizeof( Brick )] = 1;
+char (*__kaboom4)[sizeof( Birb )] = 1;
+char (*__kaboom5)[sizeof( Menu )] = 1;
+#endif
+
+Game *game = new (game_buffer) Menu(screen, input);
 
 void setup() {
   // Timer config
@@ -60,16 +84,20 @@ ISR(TIMER0_COMPA_vect) {
 
   switch (nextGame) {
     case games_e::SNEK:
-      game = snek;
+      delete game;
+      game = new (game_buffer) Snek(screen, input);
       break;
     case games_e::BRICK:
-      game = brick;
+      delete game;
+      game = new (game_buffer) Brick(screen, input);
       break;
     case games_e::BIRB:
-      game = birb;
+      delete game;
+      game = new (game_buffer) Birb(screen, input);
       break;
     case games_e::MENU:
-      game = menu;
+      delete game;
+      game = new (game_buffer) Menu(screen, input);
       break;
     default:
       break;

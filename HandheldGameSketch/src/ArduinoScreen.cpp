@@ -5,12 +5,12 @@
 #include "Arduino.h"
 
 Screen::Screen() {
-  pinMode(PIN_SHIFT_DATA, OUTPUT);
-  pinMode(PIN_SHIFT_CLOCK, OUTPUT);
-  pinMode(PIN_SHIFT_LATCH, OUTPUT);
+  pinMode((int)pin_e::shift_data, OUTPUT);
+  pinMode((int)pin_e::shift_clock, OUTPUT);
+  pinMode((int)pin_e::shift_latch, OUTPUT);
 
-  pinMode(PIN_DECADE_RESET, OUTPUT);
-  pinMode(PIN_DECADE_CLOCK, OUTPUT);
+  pinMode((int)pin_e::decade_reset, OUTPUT);
+  pinMode((int)pin_e::decade_clock, OUTPUT);
 }
 
 void Screen::draw() {
@@ -19,51 +19,42 @@ void Screen::draw() {
   this->screen = this->buf;
   this->buf = temp;
 
-  digitalWrite(PIN_DECADE_RESET, HIGH);
-  digitalWrite(PIN_SHIFT_DATA, LOW);
-  digitalWrite(PIN_SHIFT_CLOCK, LOW);
-  digitalWrite(PIN_SHIFT_LATCH, LOW);
-  digitalWrite(PIN_DECADE_RESET, LOW);
-  digitalWrite(PIN_DECADE_CLOCK, LOW);
+  digitalWrite((int)pin_e::decade_reset, HIGH);
+  digitalWrite((int)pin_e::shift_data, LOW);
+  digitalWrite((int)pin_e::shift_clock, LOW);
+  digitalWrite((int)pin_e::shift_latch, LOW);
+  digitalWrite((int)pin_e::decade_reset, LOW);
+  digitalWrite((int)pin_e::decade_clock, LOW);
 
   for (int i = 0; i < ROWS; i++) {
     for (int j = COLUMNS - 1; j >= 0; j--) {
-      digitalWrite(PIN_SHIFT_DATA, *(this->screen + i * COLUMNS + j) ? HIGH : LOW);
-      digitalWrite(PIN_SHIFT_CLOCK, HIGH);
-      digitalWrite(PIN_SHIFT_CLOCK, LOW);
+      digitalWrite((int)pin_e::shift_data, getPixel(j, i) ? HIGH : LOW);
+      //digitalWrite((int)pin_e::shift_data, *(this->screen + i * COLUMNS + j) ? HIGH : LOW);
+      digitalWrite((int)pin_e::shift_clock, HIGH);
+      digitalWrite((int)pin_e::shift_clock, LOW);
     }
 
     if (i != 0) {
       PORTD |= (1 << PD2) | (1 << PD4);
     } else {
-      digitalWrite(PIN_SHIFT_LATCH, HIGH);
+      digitalWrite((int)pin_e::shift_latch, HIGH);
     }
 
 
-    digitalWrite(PIN_SHIFT_LATCH, LOW);
-    digitalWrite(PIN_DECADE_CLOCK, LOW);
+    digitalWrite((int)pin_e::shift_latch, LOW);
+    digitalWrite((int)pin_e::decade_clock, LOW);
   }
 
   // Last row gets same display time as the other rows
   for (int j = COLUMNS - 1; j >= 0; j--) {
-      digitalWrite(PIN_SHIFT_DATA, LOW);
-      digitalWrite(PIN_SHIFT_CLOCK, HIGH);
-      digitalWrite(PIN_SHIFT_CLOCK, LOW);
+      digitalWrite((int)pin_e::shift_data, LOW);
+      digitalWrite((int)pin_e::shift_clock, HIGH);
+      digitalWrite((int)pin_e::shift_clock, LOW);
   }
 
   PORTD |= (1 << PD2) | (1 << PD4);
-  digitalWrite(PIN_SHIFT_LATCH, LOW);
-  digitalWrite(PIN_DECADE_CLOCK, LOW);
-}
-
-void Screen::erase() {
-  for (int i = 0; i < ROWS * COLUMNS; i++) {
-      *(this->buf + i) = false;
-  }
-}
-
-bool* Screen::getBuffer() {
-  return this->buf;
+  digitalWrite((int)pin_e::shift_latch, LOW);
+  digitalWrite((int)pin_e::decade_clock, LOW);
 }
 
 #endif
