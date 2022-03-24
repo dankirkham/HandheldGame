@@ -5,17 +5,14 @@
 
 class IInput {
 protected:
-  static const int DEBOUNCE_COUNT = 4;
+  static const int DEBOUNCE_COUNT = 0;
 
   bool pressed[(int)button_e::button_count];
   bool newPress[(int)button_e::button_count];
-
-  char debounce[(int)button_e::button_count];
 public:
   static const int DELAY = 5;
 
   virtual bool keyDown(button_e key) = 0;
-  virtual void tick() = 0;
 };
 
 #ifdef ARDUINO

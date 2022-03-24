@@ -60,6 +60,7 @@ MainWindow::MainWindow(QWidget *parent) :
   menu = new Menu(screen, input);
   brick = new Brick(screen, input);
   birb = new Birb(screen, input);
+  counter_game = new Counter(screen, input);
 
   game = menu;
 
@@ -71,7 +72,7 @@ MainWindow::MainWindow(QWidget *parent) :
   this->setMinimumSize(COLUMNS * SQUARE_SPACING, ROWS * SQUARE_SPACING);
   this->setWindowTitle("Handheld Game");
 
-  timerId = startTimer(1);
+  timerId = startTimer(6);
 }
 
 MainWindow::~MainWindow()
@@ -176,6 +177,9 @@ void MainWindow::timerEvent(QTimerEvent *event)
         break;
       case games_e::MENU:
         game = menu;
+        break;
+      case games_e::COUNTER:
+        game = counter_game;
         break;
       default:
         break;

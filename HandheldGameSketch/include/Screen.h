@@ -5,10 +5,15 @@
 
 class IScreen {
 protected:
-  bool buffer_1[ROWS * COLUMNS] = { false };
-  //bool buffer_2[ROWS * COLUMNS] = { false };
-  bool *screen = (bool*) this->buffer_1;
-  bool *buf = (bool*) this->buffer_1;
+  char buffer_1[ROWS * COLUMNS / 8] = {0};
+  char *screen = (char*) this->buffer_1;
+
+#if 0
+  char buffer_2[ROWS * COLUMNS / 8] = {0};
+  char *buf = (char*) this->buffer_2;
+#else
+  char *buf = (char*) this->buffer_1;
+#endif
 
 public:
   void setPixel(int x, int y);

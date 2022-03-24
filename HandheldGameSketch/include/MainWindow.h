@@ -9,6 +9,7 @@
 #include "Menu.h"
 #include "Snek.h"
 #include "Birb.h"
+#include "Counter.h"
 
 class MainWindow : public QMainWindow
 {
@@ -30,6 +31,7 @@ private:
   Brick* brick;
   Game* game;
   Birb* birb;
+  Counter* counter_game;
 
 protected:
   void keyPressEvent(QKeyEvent*);

@@ -6,7 +6,8 @@ enum class games_e {
   MENU,
   SNEK,
   BRICK,
-  BIRB
+  BIRB,
+  COUNTER
 };
 
 #endif // _GAMES_HPP_

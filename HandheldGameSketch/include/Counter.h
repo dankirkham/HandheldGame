@@ -1,18 +1,18 @@
-#ifndef Birb_h
-#define Birb_h
+#ifndef Counter_h
+#define Counter_h
 
 #include "Game.h"
 #include "Games.h"
 #include "Input.h"
 #include "Screen.h"
 
-class Birb : public Game
+class Counter : public Game
 {
 public:
-  static const int DELAY = 25; // ms
+  static const int DELAY = 100; // ms
   static const int MAX_LENGTH = 100;
 
-  Birb(Screen* screen, Input *input);
+  Counter(Screen* screen, Input *input);
   void tick();
   int getDelay();
 
@@ -22,16 +22,12 @@ private:
   void init();
 
   struct State {
-    short birb_y;
-    short birb_vy;
-    short accel_ticks;
     bool game_over;
     bool paused;
-    short gate_x[3];
-    short gate_y[3];
+    char letter;
   };
 
-  Birb::State state;
+  Counter::State state;
 };
 
 #endif

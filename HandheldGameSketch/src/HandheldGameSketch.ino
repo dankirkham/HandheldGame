@@ -6,6 +6,7 @@
 #include "Snek.h"
 #include "Menu.h"
 #include "Birb.h"
+#include "Counter.h"
 
 void *operator new(size_t size, void *ptr)
 {
@@ -18,7 +19,6 @@ void operator delete(void *ptr, unsigned int size)
 }
 
 int counter;
-int input_counter;
 
 static char input_buffer[sizeof(Input)];
 static Input *input = new (input_buffer) Input;
@@ -26,7 +26,7 @@ static Input *input = new (input_buffer) Input;
 static char screen_buffer[sizeof(Screen)];
 static Screen *screen = new (screen_buffer) Screen();
 
-const auto game_buffer_size = sizeof(Snek); // Snek is our biggest game
+const auto game_buffer_size = sizeof(Snek) * 2; // Snek is our biggest game
 static char game_buffer[game_buffer_size];
 
 // This helps us determine RAM utilization at compile time
@@ -44,7 +44,6 @@ Game *game = new (game_buffer) Menu(screen, input);
 void setup() {
   // Timer config
   counter = game->getDelay();
-  input_counter = Input::DELAY;
   TCCR0A = (1<<WGM01); // CTC mode
   OCR0A = 0xF9; // 1 ms
   TIMSK0 |= (1<<OCIE0A); // Interrupt enable
@@ -63,19 +62,11 @@ void setup() {
   sei(); // Global interrupt enable
 }
 
-void loop() {}
-
-ISR(TIMER0_COMPA_vect) {
+void loop() {
   counter--;
   if (counter == 0) {
     counter = game->getDelay();
     game->tick();
-  }
-
-  input_counter--;
-  if (input_counter == 0) {
-    input_counter = Input::DELAY;
-    input->tick();
   }
 
   screen->draw();
@@ -99,6 +90,10 @@ ISR(TIMER0_COMPA_vect) {
       delete game;
       game = new (game_buffer) Menu(screen, input);
       break;
+    case games_e::COUNTER:
+      delete game;
+      game = new (game_buffer) Counter(screen, input);
+      break;
     default:
       break;
   }
@@ -106,6 +101,9 @@ ISR(TIMER0_COMPA_vect) {
   if (nextGame != games_e::NO_CHANGE) {
     game->init();
   }
+}
+
+ISR(TIMER0_COMPA_vect) {
 }
 
 ISR(PCINT0_vect) {

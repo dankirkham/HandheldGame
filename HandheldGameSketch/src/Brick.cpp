@@ -102,30 +102,30 @@ void Brick::tick() {
             }
 
             collision = true;
-          //} else if (next_ball_x == state.paddle_x - 1) {
-          //  // Left edge of paddle
-          //  // Bounce up, move left
-          //  state.ball_vel_x = -1;
-          //  state.ball_vel_y = -1;
+          } else if (next_ball_x == state.paddle_x - 1) {
+            // Left edge of paddle
+            // Bounce up, move left
+            state.ball_vel_x = -1;
+            state.ball_vel_y = -1;
 
-          //  // Ball has a 50% to glance and move left twice.
-          //  if (random(0, 1) == 1) {
-          //    state.ball_pos_x -= 1;
-          //  }
+            // Ball has a 50% to glance and move left twice.
+            if (random(0, 1) == 1) {
+              state.ball_pos_x -= 1;
+            }
 
-          //  collision = true;
-          //} else if (next_ball_x == state.paddle_x + 1) {
-          //  // Right edge of paddle
-          //  // Bounce up, move right
-          //  state.ball_vel_x = 1;
-          //  state.ball_vel_y = -1;
+            collision = true;
+          } else if (next_ball_x == state.paddle_x + 1) {
+            // Right edge of paddle
+            // Bounce up, move right
+            state.ball_vel_x = 1;
+            state.ball_vel_y = -1;
 
-          //  // Ball has a 50% to glance and move right twice.
-          //  if (random(0, 1) == 1) {
-          //    state.ball_pos_x += 1;
-          //  }
+            // Ball has a 50% to glance and move right twice.
+            if (random(0, 1) == 1) {
+              state.ball_pos_x += 1;
+            }
 
-          //  collision = true;
+            collision = true;
           }
 
             // Move ball again

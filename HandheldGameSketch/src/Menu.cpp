@@ -19,12 +19,39 @@ int Menu::getDelay() {
 }
 
 void Menu::init() {
+  state.initial_delay = 4;
   state.x = 0;
   state.direction = Direction::LEFT;
   state.selection = 0;
 }
 
 void Menu::tick() {
+  if (state.initial_delay > 0) {
+    state.initial_delay--;
+
+    screen->erase();
+    bool odd_even = state.initial_delay % 2;
+    for (int x = 0; x < COLUMNS; x++) {
+      for (int y = 0; y < ROWS; y++) {
+        if (x % 2 == odd_even) {
+          screen->setPixel(x, y);
+        }
+        odd_even = !odd_even;
+      }
+    }
+
+    input->keyDown(button_e::start);
+    input->keyDown(button_e::select);
+    input->keyDown(button_e::up);
+    input->keyDown(button_e::left);
+    input->keyDown(button_e::down);
+    input->keyDown(button_e::left);
+    input->keyDown(button_e::a);
+    input->keyDown(button_e::b);
+
+    return;
+  }
+
   if (state.direction == Direction::RIGHT) {
     state.x--;
 
@@ -41,7 +68,10 @@ void Menu::tick() {
     }
   }
 
-  if (input->keyDown(button_e::start)) {
+  if (
+    input->keyDown(button_e::start) ||
+    input->keyDown(button_e::a)
+    ) {
     // Process selection
     switch (state.selection) {
       case 0:
@@ -52,6 +82,9 @@ void Menu::tick() {
         break;
       case 2:
         this->gameToSwitchTo = games_e::BIRB;
+        break;
+      case 3:
+        this->gameToSwitchTo = games_e::COUNTER;
         break;
       default:
         break;

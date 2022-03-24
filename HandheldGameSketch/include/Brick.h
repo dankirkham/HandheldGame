@@ -9,7 +9,7 @@
 class Brick : public Game
 {
 public:
-  static const int DELAY = 25; // ms
+  static const int DELAY = 5; // ms
   static const int MAX_LENGTH = 100;
 
   Brick(Screen* screen, Input *input);

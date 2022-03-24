@@ -5,9 +5,7 @@
 
 class Input : public IInput {
 public:
-  Input();
   bool keyDown(button_e key) override;
-  void tick() override;
 
   void handleB();
   void handleC();
