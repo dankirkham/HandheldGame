@@ -5,7 +5,7 @@
 void Screen::draw()
 {
   // Swap screen and buffer
-  char *temp = this->screen;
+  unsigned char *temp = this->screen;
   this->screen = this->buf;
   this->buf = temp;
 }

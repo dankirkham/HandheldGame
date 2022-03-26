@@ -92,10 +92,7 @@ void Birb::tick() {
     }
   }
 
-  // Draw birb
   screen->erase();
-  short y = state.birb_y / Y_MULTIPLIER;
-  screen->setPixel(BIRB_X, y);
 
   // Draw the gates
   for (int i = 0; i < GATE_COUNT; i++) {
@@ -103,11 +100,15 @@ void Birb::tick() {
     if (gate_x >= 0 && gate_x < COLUMNS) {
       auto gate_y = state.gate_y[i];
       for (int j = 0; j < gate_y; j++) {
-        screen->setPixel(gate_x, j);
+        screen->setPixel(gate_x, j, color_e::light);
       }
       for (int j = gate_y + GATE_HEIGHT; j < ROWS; j++) {
-        screen->setPixel(gate_x, j);
+        screen->setPixel(gate_x, j, color_e::light);
       }
     }
   }
+
+  // Draw birb
+  short y = state.birb_y / Y_MULTIPLIER;
+  screen->setPixel(BIRB_X, y);
 }

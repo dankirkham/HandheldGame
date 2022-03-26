@@ -38,5 +38,9 @@ void Counter::tick() {
 
   // Draw birb
   screen->erase();
-  draw_letter(screen, state.letter, 0, 0);
+  for (int i = 0; i < ROWS; i++) {
+    for (int j = COLUMNS - 1; j >= 0; j--) {
+      screen->setPixel(j, i, (color_e) (j / 4));
+    }
+  }
 }

@@ -128,12 +128,13 @@ void Snek::tick() {
     }
   }
 
-  // Paint mr snek
   screen->erase();
+
+  // Draw food
+  screen->setPixel(state.food_x, state.food_y, color_e::dark);
+
+  // Paint mr snek
   for (int i = 0; i < state.len; i++) {
     screen->setPixel(state.body_x[i], state.body_y[i]);
   }
-
-  // Draw food
-  screen->setPixel(state.food_x, state.food_y);
 }

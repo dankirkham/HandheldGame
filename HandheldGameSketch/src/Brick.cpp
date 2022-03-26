@@ -234,14 +234,6 @@ void Brick::tick() {
 
   screen->erase();
 
-  // Draw ball
-  screen->setPixel(state.ball_pos_x, state.ball_pos_y);
-
-  // Draw paddle
-  screen->setPixel(state.paddle_x - 1, PADDLE_Y);
-  screen->setPixel(state.paddle_x, PADDLE_Y);
-  screen->setPixel(state.paddle_x + 1, PADDLE_Y);
-
   // Draw bricks
   for (int x = 0; x < COLUMNS; x++) {
     for (int y = 0; y < Brick::BRICK_ROWS; y++) {
@@ -251,4 +243,13 @@ void Brick::tick() {
       }
     }
   }
+
+  // Draw paddle
+  screen->setPixel(state.paddle_x - 1, PADDLE_Y);
+  screen->setPixel(state.paddle_x, PADDLE_Y);
+  screen->setPixel(state.paddle_x + 1, PADDLE_Y);
+
+  // Draw ball
+  screen->setPixel(state.ball_pos_x, state.ball_pos_y, color_e::light);
+
 }

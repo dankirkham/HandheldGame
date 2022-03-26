@@ -5,6 +5,7 @@
 #include "Pins.h"
 #include "Screen.h"
 
+#include <iostream>
 #include <QDebug>
 #include <QPainter>
 #include <QVBoxLayout>
@@ -22,8 +23,18 @@ class Matrix : public QWidget {
 
     for (int i = 0; i < ROWS; i++) {
       for (int j = 0; j < COLUMNS; j++) {
-        //auto color = *(buf + i * COLUMNS + j) ? Qt::green : Qt::gray;
-        auto color = screen->getPixel(j, i) ? Qt::green : Qt::gray;
+        auto pixel = screen->getPixel(j, i);
+
+        double r = (int)pixel / 3.0;
+        //std ::cout << (int)pixel << std::endl;
+        auto gray = QColor(Qt::gray);
+        auto green = QColor(Qt::green);
+        QColor color(
+          gray.red() * (1-r) + green.red() * r,
+          gray.green() * (1-r) + green.green() * r,
+          gray.blue() * (1-r) + green.blue() * r,
+          255);
+
         p.setBrush(color);
 
         p.drawEllipse(

@@ -11,13 +11,17 @@ Screen::Screen() {
 
   pinMode((int)pin_e::decade_reset, OUTPUT);
   pinMode((int)pin_e::decade_clock, OUTPUT);
+
+  counter = 0;
 }
 
 void Screen::draw() {
   // Swap screen and buffer
-  char *temp = this->screen;
+  unsigned char *temp = this->screen;
   this->screen = this->buf;
   this->buf = temp;
+
+  counter = 0 ? 1 : 0;
 
   digitalWrite((int)pin_e::decade_reset, HIGH);
   digitalWrite((int)pin_e::shift_data, LOW);
@@ -27,11 +31,28 @@ void Screen::draw() {
   digitalWrite((int)pin_e::decade_clock, LOW);
 
   for (int i = 0; i < ROWS; i++) {
-    for (int j = COLUMNS - 1; j >= 0; j--) {
-      digitalWrite((int)pin_e::shift_data, getPixel(j, i) ? HIGH : LOW);
-      //digitalWrite((int)pin_e::shift_data, *(this->screen + i * COLUMNS + j) ? HIGH : LOW);
-      digitalWrite((int)pin_e::shift_clock, HIGH);
-      digitalWrite((int)pin_e::shift_clock, LOW);
+    //for (int j = COLUMNS - 1; j >= 0; j--) {
+    //  auto c = getPixel(j, i);
+    //  auto threshold = COLOR_THRESHOLDS[(int)c];
+    //  bool lit = threshold > counter;
+    //  digitalWrite((int)pin_e::shift_data, lit ? HIGH : LOW);
+    //  //digitalWrite((int)pin_e::shift_data, *(this->screen + i * COLUMNS + j) ? HIGH : LOW);
+    //  digitalWrite((int)pin_e::shift_clock, HIGH);
+    //  digitalWrite((int)pin_e::shift_clock, LOW);
+    //}
+
+    for (int n = 3; n >= 0; n--) {
+      auto segment = getSegment(n, i);
+      for (int j = 0; j < 4; j++) {
+        int c = (segment & 0xC0) >> 6;
+        segment = segment << 2;
+        auto threshold = COLOR_THRESHOLDS[c];
+        bool lit = threshold > counter;
+        digitalWrite((int)pin_e::shift_data, lit ? HIGH : LOW);
+        //digitalWrite((int)pin_e::shift_data, *(this->screen + i * COLUMNS + j) ? HIGH : LOW);
+        digitalWrite((int)pin_e::shift_clock, HIGH);
+        digitalWrite((int)pin_e::shift_clock, LOW);
+      }
     }
 
     if (i != 0) {
