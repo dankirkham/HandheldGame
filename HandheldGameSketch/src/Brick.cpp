@@ -48,12 +48,12 @@ void Brick::tick() {
 
   if (!state.paused && !state.game_over) {
     // Move Paddle
-    if (input->keyDown(button_e::left)) {
+    if (input->keyHeld(button_e::left)) {
       if (state.paddle_x > 1) {
         state.paddle_x -= 1;
       }
     }
-    if (input->keyDown(button_e::right)) {
+    if (input->keyHeld(button_e::right)) {
       if (state.paddle_x < COLUMNS - 2) {
         state.paddle_x += 1;
       }

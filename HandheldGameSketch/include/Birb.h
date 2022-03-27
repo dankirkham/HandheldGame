@@ -9,7 +9,7 @@
 class Birb : public Game
 {
 public:
-  static const int DELAY = 25; // ms
+  static const int DELAY = 50; // ms
   static const int MAX_LENGTH = 100;
 
   Birb(Screen* screen, Input *input);

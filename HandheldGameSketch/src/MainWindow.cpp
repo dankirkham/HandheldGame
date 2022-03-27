@@ -71,6 +71,7 @@ MainWindow::MainWindow(QWidget *parent) :
   menu = new Menu(screen, input);
   brick = new Brick(screen, input);
   birb = new Birb(screen, input);
+  tetris = new Tetris(screen, input);
   counter_game = new Counter(screen, input);
 
   game = menu;
@@ -83,7 +84,7 @@ MainWindow::MainWindow(QWidget *parent) :
   this->setMinimumSize(COLUMNS * SQUARE_SPACING, ROWS * SQUARE_SPACING);
   this->setWindowTitle("Handheld Game");
 
-  timerId = startTimer(6);
+  timerId = startTimer(3);
 }
 
 MainWindow::~MainWindow()
@@ -167,6 +168,8 @@ void MainWindow::keyReleaseEvent(QKeyEvent* event)
 
 void MainWindow::timerEvent(QTimerEvent *event)
 {
+  input->tick();
+
   counter--;
   if (counter == 0) {
     counter = game->getDelay();
@@ -186,6 +189,9 @@ void MainWindow::timerEvent(QTimerEvent *event)
       case games_e::BIRB:
         game = birb;
         break;
+      case games_e::TETRIS:
+        game = tetris;
+        break;
       case games_e::MENU:
         game = menu;
         break;
@@ -200,15 +206,4 @@ void MainWindow::timerEvent(QTimerEvent *event)
       game->init();
     }
   }
-
-  //input_counter--;
-  //if (input_counter == 0) {
-  //  input_counter = Input::DELAY;
-  //  input->tick();
-  //}
-
-  //display_counter--;
-  //if (display_counter == 0) {
-  //  display_counter = 20;
-  //}
 }

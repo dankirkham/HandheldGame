@@ -15,8 +15,8 @@ const MenuItem menu_items[] = {
   { .text="SNEK\0", .len=4 },
   { .text="BRICK\0", .len=5 },
   { .text="BIRB\0", .len=4 },
-  { .text="COUNTER\0", .len=7 },
-//  { .text="TETRIS\0", .len=6 },
+  { .text="TETRIS\0", .len=6 },
+  { .text="DEBUG\0", .len=5 },
 //  { .text="DRAW\0", .len=4 },
 //  { .text="REALLY LONG TEXT LOL\0", .len=20 },
 };
@@ -24,7 +24,7 @@ const MenuItem menu_items[] = {
 class Menu : public Game
 {
 public:
-  static const int DELAY = 25; // ms
+  static const int DELAY = 50; // ms
 
   Menu(Screen* screen, Input *input);
   void tick();

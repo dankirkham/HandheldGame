@@ -4,13 +4,12 @@
 
 void Input::keyPressEvent(button_e key)
 {
-  pressed[(int)key] = true;
-  newPress[(int)key] = true;
+  handleKey(key, true);
 }
 
 void Input::keyReleaseEvent(button_e key)
 {
-  pressed[(int)key] = false;
+  handleKey(key, false);
 }
 
 #endif

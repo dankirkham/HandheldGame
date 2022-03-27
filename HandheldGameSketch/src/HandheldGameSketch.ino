@@ -6,6 +6,7 @@
 #include "Snek.h"
 #include "Menu.h"
 #include "Birb.h"
+#include "Tetris.h"
 #include "Counter.h"
 
 void *operator new(size_t size, void *ptr)
@@ -69,6 +70,8 @@ void loop() {
     game->tick();
   }
 
+  input->tick();
+
   screen->draw();
 
   games_e nextGame = game->getGameToSwitchTo();
@@ -89,6 +92,10 @@ void loop() {
     case games_e::MENU:
       delete game;
       game = new (game_buffer) Menu(screen, input);
+      break;
+    case games_e::TETRIS:
+      delete game;
+      game = new (game_buffer) Tetris(screen, input);
       break;
     case games_e::COUNTER:
       delete game;

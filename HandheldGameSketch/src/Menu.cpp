@@ -7,6 +7,8 @@
 
 #define TEXT_Y 2
 #define text_len 4
+const short MENU_ITEMS = sizeof(menu_items)/sizeof(menu_items[0]);
+const short SCROLLBAR_WIDTH = COLUMNS / MENU_ITEMS;
 
 Menu::Menu(Screen* screen, Input* input) {
   this->screen = screen;
@@ -84,13 +86,15 @@ void Menu::tick() {
         this->gameToSwitchTo = games_e::BIRB;
         break;
       case 3:
+        this->gameToSwitchTo = games_e::TETRIS;
+        break;
+      case 4:
         this->gameToSwitchTo = games_e::COUNTER;
         break;
       default:
         break;
     }
   } else if (
-    input->keyDown(button_e::up) ||
     input->keyDown(button_e::left)
     ) {
     state.selection--;
@@ -102,20 +106,23 @@ void Menu::tick() {
       state.selection = 0;
     }
   } else if (
-    input->keyDown(button_e::down) ||
     input->keyDown(button_e::right)
     ) {
     state.selection++;
     state.x = 0;
     state.direction = Direction::RIGHT;
 
-    const short len = sizeof(menu_items)/sizeof(menu_items[0]);
-    if (state.selection >= len)
+    if (state.selection >= MENU_ITEMS)
     {
-      state.selection = len - 1;
+      state.selection = MENU_ITEMS - 1;
     }
   }
 
+  // Calculate scroll bar
+  unsigned char scrollbar_x1 = state.selection * SCROLLBAR_WIDTH;
+  unsigned char scrollbar_x2 = scrollbar_x1 + SCROLLBAR_WIDTH;
+
   screen->erase();
+  for (int x = scrollbar_x1; x <= scrollbar_x2; x++) screen->setPixel(x, 0);
   draw_text(screen, menu_items[state.selection].text, state.x, TEXT_Y);
 }

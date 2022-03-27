@@ -9,7 +9,7 @@
 class Snek : public Game
 {
 public:
-  static const int DELAY = 25; // ms
+  static const int DELAY = 50; // ms
   static const int MAX_LENGTH = 30;
 
   Snek(Screen* screen, Input *input);
