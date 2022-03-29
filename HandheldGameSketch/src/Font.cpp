@@ -1,5 +1,6 @@
 #include "Constants.h"
 #include "Font.h"
+#include "ProgMem.h"
 
 void draw_text(
   Screen* screen,
@@ -7,15 +8,11 @@ void draw_text(
   short start_x,
   short y
   ) {
-
   int x = start_x;
-  int i = 0;
 
-  while (text[i] != '\0')
+  for (int i = strlen(text); i >= 0; i--)
   {
     draw_letter(screen, text[i], x + (6 * i), y);
-
-    i++;
   }
 }
 
@@ -25,89 +22,89 @@ void draw_letter(
   short x,
   short y
   ) {
-  const bool* lbuf;
+  bool buffer[FONT_WIDTH * FONT_HEIGHT];
 
   switch(letter) {
     case 'A':
-      lbuf = letters::A;
+      memcpy_P(buffer, letters::A, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'B':
-      lbuf = letters::B;
+      memcpy_P(buffer, letters::B, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'C':
-      lbuf = letters::C;
+      memcpy_P(buffer, letters::C, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'D':
-      lbuf = letters::D;
+      memcpy_P(buffer, letters::D, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'E':
-      lbuf = letters::E;
+      memcpy_P(buffer, letters::E, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'F':
-      lbuf = letters::F;
+      memcpy_P(buffer, letters::F, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'G':
-      lbuf = letters::G;
+      memcpy_P(buffer, letters::G, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'H':
-      lbuf = letters::H;
+      memcpy_P(buffer, letters::H, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'I':
-      lbuf = letters::I;
+      memcpy_P(buffer, letters::I, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'J':
-      lbuf = letters::J;
+      memcpy_P(buffer, letters::J, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'K':
-      lbuf = letters::K;
+      memcpy_P(buffer, letters::K, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'L':
-      lbuf = letters::L;
+      memcpy_P(buffer, letters::L, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'M':
-      lbuf = letters::M;
+      memcpy_P(buffer, letters::M, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'N':
-      lbuf = letters::N;
+      memcpy_P(buffer, letters::N, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'O':
-      lbuf = letters::O;
+      memcpy_P(buffer, letters::O, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'P':
-      lbuf = letters::P;
+      memcpy_P(buffer, letters::P, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'Q':
-      lbuf = letters::Q;
+      memcpy_P(buffer, letters::Q, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'R':
-      lbuf = letters::R;
+      memcpy_P(buffer, letters::R, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'S':
-      lbuf = letters::S;
+      memcpy_P(buffer, letters::S, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'T':
-      lbuf = letters::T;
+      memcpy_P(buffer, letters::T, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'U':
-      lbuf = letters::U;
+      memcpy_P(buffer, letters::U, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'V':
-      lbuf = letters::V;
+      memcpy_P(buffer, letters::V, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'W':
-      lbuf = letters::W;
+      memcpy_P(buffer, letters::W, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'X':
-      lbuf = letters::X_letter;
+      memcpy_P(buffer, letters::X_letter, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'Y':
-      lbuf = letters::Y;
+      memcpy_P(buffer, letters::Y, FONT_WIDTH * FONT_HEIGHT);
       break;
     case 'Z':
-      lbuf = letters::Z;
+      memcpy_P(buffer, letters::Z, FONT_WIDTH * FONT_HEIGHT);
       break;
     default:
-      lbuf = letters::FULL;
+      memcpy_P(buffer, letters::FULL, FONT_WIDTH * FONT_HEIGHT);
       break;
   }
 
@@ -120,7 +117,7 @@ void draw_letter(
     {
       if (y + j < 0) continue;
       if (y + j >= ROWS) break;
-      if (*(lbuf + j * FONT_WIDTH + i))
+      if (*(buffer + j * FONT_WIDTH + i))
       {
         screen->setPixel(x + i, y + j);
       }

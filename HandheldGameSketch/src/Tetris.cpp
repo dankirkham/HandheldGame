@@ -34,7 +34,7 @@ bool Tetris::withBlock(
   ) {
   for (int j = 0; j < 2; j++) {
     for (int i = 0; i < 4; i++) {
-      if (BLOCKS[(int)state.block][(j << 2) + i]) {
+      if (state.block[(j << 2) + i]) {
         int x, y;
 
         if (new_rotation == 0) {
@@ -72,7 +72,9 @@ bool Tetris::withBlock(
 }
 
 void Tetris::spawnBlock() {
-  state.block = (block_e)random(0, (int)block_e::total_blocks - 1);
+  auto block_type = (block_e)random(0, (int)block_e::total_blocks - 1);
+  memcpy_P(state.block, (PGM_P)pgm_read_word(&(BLOCKS[(int)block_type])), 8);
+
   state.move_counter = Tetris::MOVE_COUNTER;
   state.rotation = 1;
   state.x = 15;

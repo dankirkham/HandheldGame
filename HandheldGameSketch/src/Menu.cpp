@@ -23,8 +23,9 @@ int Menu::getDelay() {
 void Menu::init() {
   state.initial_delay = 4;
   state.x = 0;
-  state.direction = Direction::LEFT;
+  state.direction = Direction::RIGHT;
   state.selection = 0;
+  strcpy_P(state.menu_item, (PGM_P)pgm_read_word(&(menu_items[state.selection])));
 }
 
 void Menu::tick() {
@@ -57,7 +58,7 @@ void Menu::tick() {
   if (state.direction == Direction::RIGHT) {
     state.x--;
 
-    if (state.x <= COLUMNS - menu_items[state.selection].len * 6 + 1)
+    if (state.x <= COLUMNS - strlen(state.menu_item) * 6 + 1)
     {
       state.direction = Direction::LEFT;
     }
@@ -105,6 +106,8 @@ void Menu::tick() {
     {
       state.selection = 0;
     }
+
+    strcpy_P(state.menu_item, (PGM_P)pgm_read_word(&(menu_items[state.selection])));
   } else if (
     input->keyDown(button_e::right)
     ) {
@@ -116,6 +119,7 @@ void Menu::tick() {
     {
       state.selection = MENU_ITEMS - 1;
     }
+    strcpy_P(state.menu_item, (PGM_P)pgm_read_word(&(menu_items[state.selection])));
   }
 
   // Calculate scroll bar
@@ -124,5 +128,5 @@ void Menu::tick() {
 
   screen->erase();
   for (int x = scrollbar_x1; x <= scrollbar_x2; x++) screen->setPixel(x, 0);
-  draw_text(screen, menu_items[state.selection].text, state.x, TEXT_Y);
+  draw_text(screen, state.menu_item, state.x, TEXT_Y);
 }

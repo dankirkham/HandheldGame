@@ -4,6 +4,7 @@
 #include "Game.h"
 #include "Games.h"
 #include "Input.h"
+#include "ProgMem.h"
 #include "Screen.h"
 
 #define X true
@@ -13,37 +14,37 @@ namespace tetris {
 const int BLOCK_HEIGHT = 2;
 const int BLOCK_WIDTH = 4;
 
-const bool I[BLOCK_WIDTH * BLOCK_HEIGHT] = {
+const char I[BLOCK_WIDTH * BLOCK_HEIGHT] PROGMEM = {
   _, _, _, _,
   X, X, X, X
 };
 
-const bool O[BLOCK_WIDTH * BLOCK_HEIGHT] = {
+const char O[BLOCK_WIDTH * BLOCK_HEIGHT] PROGMEM = {
   _, X, X, _,
   _, X, X, _
 };
 
-const bool T[BLOCK_WIDTH * BLOCK_HEIGHT] = {
+const char T[BLOCK_WIDTH * BLOCK_HEIGHT] PROGMEM = {
   _, X, _, _,
   X, X, X, _
 };
 
-const bool S[BLOCK_WIDTH * BLOCK_HEIGHT] = {
+const char S[BLOCK_WIDTH * BLOCK_HEIGHT] PROGMEM = {
   _, X, X, _,
   X, X, _, _
 };
 
-const bool Z[BLOCK_WIDTH * BLOCK_HEIGHT] = {
+const char Z[BLOCK_WIDTH * BLOCK_HEIGHT] PROGMEM = {
   X, X, _, _,
   _, X, X, _
 };
 
-const bool J[BLOCK_WIDTH * BLOCK_HEIGHT] = {
+const char J[BLOCK_WIDTH * BLOCK_HEIGHT] PROGMEM = {
   X, _, _, _,
   X, X, X, _
 };
 
-const bool L[BLOCK_WIDTH * BLOCK_HEIGHT] = {
+const char L[BLOCK_WIDTH * BLOCK_HEIGHT] PROGMEM = {
   _, _, X, _,
   X, X, X, _
 };
@@ -61,27 +62,7 @@ enum class block_e : char {
   total_blocks = 7
 };
 
-const unsigned int ROTATION_OFFSET_X[(int)block_e::total_blocks] = {
-  1, // I
-  1, // O
-  1, // T
-  1, // S
-  1, // Z
-  1, // J
-  1 // L
-};
-
-const unsigned int ROTATION_OFFSET_Y[(int)block_e::total_blocks] = {
-  1, // I
-  1, // O
-  1, // T
-  1, // S
-  1, // Z
-  1, // J
-  1 // L
-};
-
-const bool * const BLOCKS[(int)block_e::total_blocks] = {
+PGM_P const BLOCKS[(int)block_e::total_blocks] PROGMEM = {
   tetris::I,
   tetris::O,
   tetris::T,
@@ -118,7 +99,7 @@ private:
   struct State {
     bool game_over;
     bool paused;
-    block_e block;
+    char block[8];
     unsigned int move_counter;
     unsigned char rotation;
     char x;
