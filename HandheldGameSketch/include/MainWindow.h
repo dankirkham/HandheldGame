@@ -3,15 +3,6 @@
 
 #include <QMainWindow>
 
-#include "Game.h"
-#include "Input.h"
-#include "Brick.h"
-#include "Menu.h"
-#include "Snek.h"
-#include "Birb.h"
-#include "Tetris.h"
-#include "Counter.h"
-
 class MainWindow : public QMainWindow
 {
   Q_OBJECT
@@ -22,18 +13,6 @@ public:
 
 private:
   int timerId;
-  uint8_t counter;
-  uint8_t input_counter;
-  uint8_t display_counter;
-  Input* input;
-
-  Menu* menu;
-  Snek* snek;
-  Brick* brick;
-  Game* game;
-  Birb* birb;
-  Tetris* tetris;
-  Counter* counter_game;
 
 protected:
   void keyPressEvent(QKeyEvent*);

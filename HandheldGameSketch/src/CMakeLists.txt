@@ -4,6 +4,8 @@ set(handheld_game_SKETCH
   )
 
 set(handheld_game_SRCS
+  ${CMAKE_CURRENT_SOURCE_DIR}/Executor.cpp
+
   ${CMAKE_CURRENT_SOURCE_DIR}/ArduinoInput.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/ArduinoScreen.cpp
 
@@ -32,6 +34,8 @@ set(handheld_game_SRCS
 if(UNIX)
   add_executable(handheld_game
     HandheldGameSketch.ino
+
+    Executor.cpp
 
     ArduinoInput.cpp
     ArduinoScreen.cpp
