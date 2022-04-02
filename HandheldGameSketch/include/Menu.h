@@ -12,14 +12,16 @@ const char string_1[] PROGMEM = "SNEK";
 const char string_2[] PROGMEM = "BRICK";
 const char string_3[] PROGMEM = "BIRB";
 const char string_4[] PROGMEM = "TETRIS";
-const char string_5[] PROGMEM = "DEBUG";
+const char string_5[] PROGMEM = "PONG";
+const char string_6[] PROGMEM = "DEBUG";
 
 PGM_P const menu_items[] PROGMEM = {
   string_1,
   string_2,
   string_3,
   string_4,
-  string_5
+  string_5,
+  string_6
 };
 
 class Menu : public Game

@@ -8,6 +8,7 @@ enum class games_e {
   BRICK,
   BIRB,
   TETRIS,
+  PONG,
   COUNTER
 };
 

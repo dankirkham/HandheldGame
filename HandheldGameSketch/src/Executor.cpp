@@ -51,6 +51,10 @@ void Executor::tick() {
       //delete game;
       game = new GAME_BUFFER Tetris(screen, input);
       break;
+    case games_e::PONG:
+      //delete game;
+      game = new GAME_BUFFER Pong(screen, input);
+      break;
     case games_e::COUNTER:
       //delete game;
       game = new GAME_BUFFER Counter(screen, input);

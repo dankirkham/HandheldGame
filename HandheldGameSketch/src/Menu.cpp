@@ -90,6 +90,9 @@ void Menu::tick() {
         this->gameToSwitchTo = games_e::TETRIS;
         break;
       case 4:
+        this->gameToSwitchTo = games_e::PONG;
+        break;
+      case 5:
         this->gameToSwitchTo = games_e::COUNTER;
         break;
       default:

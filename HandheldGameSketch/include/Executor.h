@@ -11,6 +11,7 @@
 #include "Birb.h"
 #include "Tetris.h"
 #include "Counter.h"
+#include "Pong.h"
 #include "Brick.h"
 
 #ifdef ARDUINO
