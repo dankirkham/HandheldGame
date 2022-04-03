@@ -27,6 +27,7 @@ set(handheld_game_SRCS
   ${CMAKE_CURRENT_SOURCE_DIR}/Birb.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/Tetris.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/Pong.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/Quest.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/Counter.cpp
 
   PARENT_SCOPE
@@ -60,6 +61,7 @@ if(UNIX)
     Birb.cpp
     Tetris.cpp
     Pong.cpp
+    Quest.cpp
     Counter.cpp
 
     # For moc to work...

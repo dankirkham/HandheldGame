@@ -12,6 +12,7 @@
 #include "Tetris.h"
 #include "Counter.h"
 #include "Pong.h"
+#include "Quest.h"
 #include "Brick.h"
 
 #ifdef ARDUINO
@@ -20,7 +21,7 @@ void operator delete(void*, unsigned int);
 
 static char input_buffer[sizeof(Input)];
 static char screen_buffer[sizeof(Screen)];
-const auto game_buffer_size = sizeof(Snek) * 2; // Snek is our biggest game
+const auto game_buffer_size = sizeof(Quest) * 2; // Snek is our biggest game
 static char game_buffer[game_buffer_size];
 
 #define INPUT_BUFFER (input_buffer)

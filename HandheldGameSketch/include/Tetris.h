@@ -7,10 +7,11 @@
 #include "ProgMem.h"
 #include "Screen.h"
 
-#define X true
-#define _ false
-
 namespace tetris {
+
+constexpr char _ = false;
+constexpr char X = true;
+
 const int BLOCK_HEIGHT = 2;
 const int BLOCK_WIDTH = 4;
 

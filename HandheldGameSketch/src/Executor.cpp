@@ -55,6 +55,10 @@ void Executor::tick() {
       //delete game;
       game = new GAME_BUFFER Pong(screen, input);
       break;
+    case games_e::QUEST:
+      //delete game;
+      game = new GAME_BUFFER Quest(screen, input);
+      break;
     case games_e::COUNTER:
       //delete game;
       game = new GAME_BUFFER Counter(screen, input);

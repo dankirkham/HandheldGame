@@ -93,6 +93,9 @@ void Menu::tick() {
         this->gameToSwitchTo = games_e::PONG;
         break;
       case 5:
+        this->gameToSwitchTo = games_e::QUEST;
+        break;
+      case 6:
         this->gameToSwitchTo = games_e::COUNTER;
         break;
       default:
@@ -127,7 +130,12 @@ void Menu::tick() {
 
   // Calculate scroll bar
   unsigned char scrollbar_x1 = state.selection * SCROLLBAR_WIDTH;
-  unsigned char scrollbar_x2 = scrollbar_x1 + SCROLLBAR_WIDTH;
+  unsigned char scrollbar_x2;
+  if (state.selection >= MENU_ITEMS - 1) {
+    scrollbar_x2 = COLUMNS - 1;
+  } else {
+    scrollbar_x2 = scrollbar_x1 + SCROLLBAR_WIDTH;
+  }
 
   screen->erase();
   for (int x = scrollbar_x1; x <= scrollbar_x2; x++) screen->setPixel(x, 0);
