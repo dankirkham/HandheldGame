@@ -25,6 +25,7 @@ void Quest::init() {
   state.y = 0;
   state.keys = 0;
 
+  loadEntities();
   loadLevel(true);
 }
 
@@ -76,22 +77,9 @@ void Quest::tick() {
         loadLevel(false);
       }
     } else { // Staying on the map
-      switch (getCell(new_x, new_y)) {
+      auto cell = getCell(new_x, new_y);
+      switch (cell) {
         case quest::X:
-          break;
-
-        case quest::d:
-          if (state.keys > 0) {
-            state.level[new_y * COLUMNS + new_x] = quest::_;
-            move_valid = true;
-            state.keys--;
-          }
-          break;
-
-        case quest::k:
-          state.level[new_y * COLUMNS + new_x] = quest::_;
-          move_valid = true;
-          state.keys++;
           break;
 
         case quest::f:
@@ -101,8 +89,24 @@ void Quest::tick() {
 
         case quest::s:
         case quest::_:
-        default:
           move_valid = true;
+          break;
+
+        // A key or door
+        default:
+          if (state.entities[cell - 1] == quest::d) {
+            if (state.keys > 0) {
+              state.keys--;
+              move_valid = true;
+              state.entities[cell - 1] = quest::_;
+            }
+          } else if (state.entities[cell - 1] == quest::k) {
+            state.keys++;
+            move_valid = true;
+            state.entities[cell - 1] = quest::_;
+          } else if (state.entities[cell - 1] == quest::_) {
+            move_valid = true;
+          }
           break;
       }
 
@@ -117,16 +121,21 @@ void Quest::tick() {
 
   for (int y = 0; y < ROWS; y++) {
     for (int x = 0; x < COLUMNS; x++) {
-      switch (getCell(x, y)) {
+      auto cell = getCell(x, y);
+      switch (cell) {
         case quest::X:
-        case quest::k:
-        case quest::d:
           screen->setPixel(x, y);
           break;
         case quest::s:
         case quest::f:
         case quest::_:
+          break;
+
         default:
+        // Check if the key has been picked up
+          if (state.entities[cell - 1]) {
+            screen->setPixel(x, y);
+          }
           break;
       }
     }
@@ -136,6 +145,14 @@ void Quest::tick() {
   screen->setPixel(state.x, state.y);
 }
 
+void Quest::loadEntities() {
+  memcpy_P(
+    state.entities,
+    (PGM_P)pgm_read_word(&entities_0),
+    ENTITY_COUNT
+  );
+}
+
 void Quest::loadLevel(bool start) {
   memcpy_P(
     state.level,
@@ -143,20 +160,19 @@ void Quest::loadLevel(bool start) {
     ROWS * COLUMNS
   );
 
-  if (!start) return;
-
   // Find start pos
   for (int y = 0; y < ROWS; y++) {
     for (int x = 0; x < COLUMNS; x++) {
-      switch (getCell(x, y)) {
+      auto cell = getCell(x, y);
+      switch (cell) {
         case quest::s:
-          state.x = x;
-          state.y = y;
-          return;
+          if (start) {
+            state.x = x;
+            state.y = y;
+          }
+          break;
         case quest::f:
         case quest::X:
-        case quest::k:
-        case quest::d:
         case quest::_:
         default:
           break;
