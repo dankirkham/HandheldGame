@@ -146,11 +146,15 @@ void Quest::tick() {
 }
 
 void Quest::loadEntities() {
-  memcpy_P(
-    state.entities,
-    (PGM_P)pgm_read_word(&entities_0),
-    ENTITY_COUNT
-  );
+  //memcpy_P(
+  //  state.entities,
+  //  (PGM_P)pgm_read_word(&entities_0),
+  //  ENTITY_COUNT
+  //);
+
+  for (int i = 0; i < ENTITY_COUNT; i++) {
+    state.entities[i] = pgm_read_word(entities_0 + i);
+  }
 }
 
 void Quest::loadLevel(bool start) {

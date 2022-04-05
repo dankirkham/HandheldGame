@@ -12,8 +12,8 @@ enum class key_state_e {
 
 class IInput {
 protected:
-  static const int DEBOUNCE_COUNT = 2;
-  static const int DELAY = 10;
+  static const int DEBOUNCE_COUNT = 1;
+  static const int DELAY = 2;
 
   key_state_e key_state[(int)button_e::button_count] = { key_state_e::up };
   bool newPress[(int)button_e::button_count];

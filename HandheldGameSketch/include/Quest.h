@@ -167,7 +167,7 @@ const char entities_0[ENTITY_COUNT] PROGMEM = {
 class Quest : public Game
 {
 public:
-  static const int DELAY = 50; // ms
+  static const int DELAY = 25; // ms
 
   Quest(Screen* screen, Input *input);
   void tick();
